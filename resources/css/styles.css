@@ -1,0 +1,623 @@
+@font-face {
+    font-family: "Mont Regular";
+    src: url(../font/Mont/Fontfabric---Mont-Regular.otf);
+}
+
+@font-face {
+    font-family: "Mont Light";
+    src: url(../font/Mont/Fontfabric---Mont-ExtraLight.otf);
+}
+
+@font-face {
+    font-family: "Mont Bold";
+    src: url(../font/Mont/Fontfabric---Mont-Bold.otf);
+}
+
+@font-face {
+    font-family: "Mont Bold Italic";
+    src: url(../font/Mont/Fontfabric---Mont-Bold-Italic.otf);
+}
+
+@font-face {
+    font-family: "Mont Regular Italic";
+    src: url(../font/Mont/Fontfabric---Mont-Regular-Italic.otf);
+}
+
+@font-face {
+    font-family: "Mont Light Italic";
+    src: url(../font/Mont/Fontfabric---Mont-ExtraLight-Italic.otf);
+}
+
+/* ===================================== RESOLUSI > 900px (LAYAR LAPTOP) ======================================= */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: black;
+    font-family: "Mont Regular";
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 7px rgba(0,0,0,1);
+    border-radius: 10px;
+    background-color: #000;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+	box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #333;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #222;
+}
+
+/* div {
+    border: 2px solid red;
+} */
+
+.regular-italic {
+    font-family: "Mont Bold Italic";
+}
+
+.text-white {
+    color: white;
+}
+
+section#landing-page-hero {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.bg-dinamik {
+    width: 100%;
+    height: 670px;
+    background-image: url(../img/Parallax/layer0.png);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 1.5vh;
+}
+
+.parallax-go-up {
+    animation: goUp 5s linear infinite;
+}
+
+.layer {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.layer-2 {
+    position: absolute;
+    top: 50px;
+    display: inline-block;
+}
+
+.layer-2 .map {
+    display: block;
+    width: 650px;
+}
+
+.layer-3 {
+    top: 140px;
+}
+
+.layer-3 .dinamik {
+    display: block;
+    width: 400px;
+}
+
+.layer-3 .dinamik:hover {
+    cursor: pointer;
+}
+
+.layer-4 {
+    position: absolute;
+    top: 280px;
+    display: inline-block;
+}
+
+.layer-4 .tv {
+    display: block;
+    width: 400px;
+}
+
+.layer-4 .rotate-scroll {
+    position: absolute;
+    width: 100px;
+    top: 210px;
+    left: 150px;
+    animation: rotate 10s infinite linear;
+}
+
+.layer .gradient {
+    width: 100%;
+    height: 100vh;
+}
+
+.diesnatalis {
+    font-family: "Mont Regular Italic";
+    color: white;
+    position: absolute;
+    display: block;
+    font-size: 0.7em;
+    left: -30px;
+    top: 5px;
+}
+
+.nov-2019 {
+    font-family: "Mont Light Italic";
+    color: white;
+    position: absolute;
+    display: block;
+    font-size: 1.2em;
+    bottom: -10px;
+    left: -30px;
+    transform: rotateZ(-90deg);
+}
+
+.number {
+    font-family: "Mont Light";
+    color: white;
+    position: absolute;
+    display: block;
+    font-size: 0.85em;
+    top: 70px;
+    right: -50px;
+    transform: rotateZ(180deg);
+}
+
+header {
+    width: 100%;
+    z-index: 999;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+.header-home {
+    transform: translateY(-75px);
+    top: 75px;
+}
+
+nav {
+    padding: 15px 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav .brand-dinamik img {
+    width: 180px;
+}
+
+nav .nav-dinamik-item ul li {
+    display: inline-block;
+    margin-top: 10px;
+    padding-left: 15px;
+}
+
+nav .nav-dinamik-item ul li a {
+    font-size: 0.9em;
+    text-decoration: none;
+    color: white;
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: white;
+    margin: 6px 0px;
+    border-radius: 5px;
+    transition: all 0.2s ease;
+}
+
+.navbar-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.close-btn-group {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    display: none;
+}
+
+.change .bar1 {
+    transform: rotate(45deg) translateY(10px);
+}
+
+.change .bar2 {
+    transform: rotate(-45deg) translateY(-8px) translateX(-2px);
+}
+
+.overlay-navbar {
+    position: fixed;
+    height: 0%;
+    width: 100%;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0, 1);
+    overflow-y: auto;
+    transition: all ease 0.5s;
+    display: flex;
+    align-items: center;
+}
+
+.overlay-navbar-item {
+    margin: auto;
+    padding: 50px 0px;
+}
+
+.overlay-navbar-item ul li {
+    list-style: none;
+    text-align: center;
+}
+
+.overlay-navbar-item ul li a {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 15px;
+    font-size: 24px;
+    color: white;
+}
+
+#abstraction-section {
+    margin-top: -80px;
+}
+
+.header-section {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.header-section .header-stroke {
+    line-height: 35px;
+}
+
+.header-section .header-stroke span {
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: white;
+    display: block;
+    font-size: 2.5em;
+    color: rgba(0,0,0,0);
+}
+
+.header-section .header-animation span:nth-child(1) {
+    animation: header-animate 5s ease 0s infinite;
+}
+
+.header-section .header-animation span:nth-child(2) {
+    animation: header-animate 5s ease 1s infinite;
+}
+
+.header-section .header-animation span:nth-child(3) {
+    animation: header-animate 5s ease 2s infinite;
+}
+
+.header-section .header-animation span:nth-child(4) {
+    animation: header-animate 5s ease 3s infinite;
+}
+
+.header-section .header-animation span:nth-child(5) {
+    animation: header-animate 5s ease 4s infinite;
+}
+
+section {
+    padding: 20px 0;
+}
+
+.home-sections {
+    position: relative;
+    background-color: black;
+}
+
+.dinamik-abstract {
+    margin: 60px 100px 0px 100px;
+    font-family: "Mont Light";
+    font-size: 1.2em;
+    text-align: center;
+    color: white;
+}
+
+.dinamik-abstract p {
+    margin: 30px 0px;
+}
+
+.competition-slide {
+    margin: 70px auto 50px auto;
+    width: 80%;
+    height: 200px;
+}
+
+.competition-container  {
+    height: 200px;
+    position: relative;
+}
+
+.competition-container:hover  {
+    cursor: pointer;
+}
+
+.competition-container img {
+    position: relative;
+    height: 100%;
+    z-index: -1;
+}
+
+.competition-container span {
+    position: absolute;
+    left: 15px;
+    bottom: 10px;
+    color: white;
+}
+
+.competition-button-group {
+    height: auto;
+    width: 200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.competition-prev button, .competition-next button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+    font-size: 65px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.competition-prev button:hover, .competition-next button:hover {
+    color: #777;
+}
+
+.competition-prev button:active, .competition-next button:active {
+    transform: scale(0.85);
+    color: #777;
+}
+
+/*  =========================================== REGISTRATION PAGE =================================== */
+
+.bg-form-page {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    position: fixed;
+    z-index: -999;
+}
+
+.form-container {
+    width: 700px;
+    height: 500px;
+    background-color: black;
+    position: relative;
+    top: -90px;
+    margin: auto;
+    z-index: 0;
+}
+
+.form-header {
+    width: 100%;
+    height: 25%;
+    background-color: #d600ff;
+}
+
+form {
+    position: relative;
+    margin: 70px 100px;
+    z-index: 999;
+}
+
+.form-group {
+    color: white;
+    margin: 30px 0px;
+    position: relative;
+}
+
+.form-label {
+    margin-left: 5px;
+    position: absolute;
+    z-index: -1;
+    top: 5px;
+    color: #d600ff;
+    transition: all 0.3s ease;
+}
+
+.form-label i {
+    display: inline-block;
+    padding-right: 3px;
+}
+
+.form-label-focus {
+    margin-left: 0px;
+    top: -15px;
+    font-size: 11px;
+    color: #ffee00;
+    transition: all 0.3s ease;
+    font-family: "Mont Regular Italic";
+}
+
+.form-input {
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid #d600ff;
+    outline: none;
+    color: white;
+    padding: 5px 5px;
+    transition: all 0.6s ease;
+}
+
+.show-pass {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #d600ff;
+}
+
+.show-pass:hover {
+    cursor: pointer;
+}
+
+.button-form {
+    display: block;
+    margin-left: auto;
+    padding: 5px 30px;
+    text-align: center;
+    color: white;
+    background-color: #d600ff;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+/* ============================================ ANIMATION =========================================== */
+
+@keyframes goUp {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-50%);
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes header-animate {
+    0% {
+        color: black;
+        -webkit-text-stroke-color: white;
+    }
+    20% {
+        color: 	#d600ff;
+        -webkit-text-stroke-color: 	#d600ff;
+    }
+    40% {
+        color: black;
+        -webkit-text-stroke-color: white;
+    }
+}
+
+
+/* ============================= RESOLUSI 450px ~ 900px (POSISI LANDSCAPE) ================================== */
+
+@media only screen and (max-width: 900px) {
+
+    .layer-2 {
+        top: 30px;
+    }
+
+    .layer-2 .map {
+        width: 300px;
+    }
+
+    .layer-3 {
+        top: 70px;
+    }
+
+    .layer-3 .dinamik {
+        width: 200px;
+    }
+    
+    .layer-4 {
+        top: 130px;
+    }
+
+    .layer-4 .tv {
+        width: 200px;
+    }
+
+    .layer-4 .rotate-scroll {
+        width: 50px;
+        top: 90px;
+        left: 70px;
+    }
+    
+    .nov-2019 {
+        font-size: 0.9em;
+    }
+
+    .number {
+        font-size: 0.65em;
+        top: 20px;
+        right: -30px;
+    }
+
+    nav {
+        padding: 10px 20px;
+    }
+
+    nav .brand-dinamik img {
+        width: 130px;
+    }
+
+    nav #nav-menu-container {
+        display: none;
+    }
+    
+    .navbar-toggle {
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .close-btn-group {
+        display: block;
+    }
+
+    .header-home {
+        transform: translateY(-110px);
+        top: 110px;
+    }
+
+    #abstraction-section {
+        margin-top: -60px;
+    }
+
+    .header-section .header-animation span {
+        font-size: 2em;
+    }
+
+    .dinamik-abstract {
+        font-size: 1em;
+    }
+}
+
+/* ===================================== RESOLUSI < 450px (POSISI POTRAIT) ======================================= */
+
+@media only screen and (max-width: 450px) {
+
+}
