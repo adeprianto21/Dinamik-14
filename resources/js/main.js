@@ -42,10 +42,20 @@ $(document).ready(function () {
             layer.css('transform', 'translateY(' + offsetY + 'px)');
         });
 
-        if ($("header").position().top > ($("#abstraction-section").position().top - 100)) {
-            $("header").css({ "background-color": "rgba(0,0,0,0.9)", "transition": "all ease 0.5s" });
-        } else {
-            $("header").css({ "background-color": "rgba(0,0,0,0)", "transition": "all ease 0.5s" });
+        if ($("#header-home").length) {
+            if ($("#header-home").position().top > ($("#abstraction-section").position().top - 100)) {
+                $("header").css({ "background-color": "rgba(0,0,0,0.9)", "transition": "all ease 0.5s" });
+            }
+            else {
+                $("header").css({ "background-color": "rgba(0,0,0,0)", "transition": "all ease 0.5s" });
+            }
+        } else if ($("#header-top").length) {
+            if ($("#header-top").position().top > 50) {
+                $("header").css({ "background-color": "rgba(0,0,0,0.9)", "transition": "all ease 0.5s" });
+            }
+            else {
+                $("header").css({ "background-color": "rgba(0,0,0,0)", "transition": "all ease 0.5s" });
+            }
         }
 
     });
