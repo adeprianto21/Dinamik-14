@@ -58,7 +58,7 @@
         </div>
     </section>
 
-    <header class="header-home">
+    <header id="header-home">
 
         <nav>
             <div class="brand-dinamik">

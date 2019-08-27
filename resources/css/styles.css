@@ -189,7 +189,7 @@ header {
     top: 0;
 }
 
-.header-home {
+#header-home {
     transform: translateY(-75px);
     top: 75px;
 }
@@ -598,7 +598,7 @@ form {
         display: block;
     }
 
-    .header-home {
+    #header-home {
         transform: translateY(-110px);
         top: 110px;
     }

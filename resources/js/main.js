@@ -1,7 +1,5 @@
 $(document).ready(function () {
 
-    let headerHomePosition = $("#abstraction-section").position().top;
-
     if ($(window).width() < 900) {
         $("#nav-menu-container").addClass("overlay-navbar");
         $("#nav-item-list").addClass("overlay-navbar-item").removeClass("nav-dinamik-item");
@@ -19,9 +17,12 @@ $(document).ready(function () {
 
     $(".navbar-toggle").click(function () {
         $("#nav-menu-container").css("display", "flex");
-        $(".overlay-navbar").css("height", "100%");
-        $(".close-btn-group").toggleClass("change");
-        $("body").css("overflow", "hidden");
+        setTimeout(function () {
+            $(".overlay-navbar").css("height", "100%");
+            $(".close-btn-group").toggleClass("change");
+            $("body").css("overflow", "hidden");
+        }, 10);
+
     });
 
     $(".close-btn-group").click(function () {
@@ -89,6 +90,9 @@ $(document).ready(function () {
             0: {
                 items: 1,
                 stagePadding: 0
+            },
+            450: {
+                items: 1
             },
             680: {
                 items: 2
