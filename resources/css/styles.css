@@ -409,30 +409,36 @@ section {
 }
 
 .form-container {
+    top: 10px;
     width: 700px;
-    height: 500px;
+    height: auto;
+    padding: 70px 100px;
     background-color: black;
     position: relative;
-    top: -90px;
     margin: auto;
     z-index: 0;
 }
 
-.form-header {
+.form-container::before {
+    content: '';
     width: 100%;
     height: 25%;
     background-color: #d600ff;
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 form {
     position: relative;
-    margin: 70px 100px;
     z-index: 999;
 }
 
 .form-group {
     color: white;
-    margin: 30px 0px;
+    margin-top: 30px;
+    margin-bottom: 0;
     position: relative;
 }
 
@@ -453,10 +459,31 @@ form {
 .form-label-focus {
     margin-left: 0px;
     top: -15px;
-    font-size: 11px;
+    font-size: 12px;
     color: #ffee00;
     transition: all 0.3s ease;
     font-family: "Mont Regular Italic";
+}
+
+.form-message-error {
+    display: inline-block;
+    font-size: 12px;
+    color: red;
+    font-family: "Mont Regular";
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.form-icon-error {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: -25px;
+    color: red;
+}
+
+.form-icon-error:hover {
+    cursor: pointer;
 }
 
 .form-input {
@@ -473,6 +500,19 @@ form {
     transition: all 0.6s ease;
 }
 
+.form-input-focus {
+    border-bottom: 2px solid #ffee00;
+}
+
+.form-input-error {
+    border-bottom: 2px solid red;
+}
+
+.form-input:-webkit-autofill {
+    animation-name: autofill;
+    animation-fill-mode: both;
+}
+
 .show-pass {
     position: absolute;
     top: 50%;
@@ -487,6 +527,7 @@ form {
 
 .button-form {
     display: block;
+    margin-top: 30px;
     margin-left: auto;
     padding: 5px 30px;
     text-align: center;
@@ -498,6 +539,13 @@ form {
 }
 
 /* ============================================ ANIMATION =========================================== */
+
+@keyframes autofill {
+    to {
+        color: white;
+        background-color: rgba(0,0,0,0);
+    }
+}
 
 @keyframes goUp {
     0% {

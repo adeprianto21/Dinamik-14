@@ -33,34 +33,94 @@
 </div>
 
 <div class="form-container">
-    <div class="form-header"></div>
-    <form action="">
+
+    <form method="POST" action="{{route('register')}}">
+
+        @csrf
+
         <div class="form-group">
+
             <label class="form-label">
                 <i class="far fa-user"></i>
                 Username
             </label>
-            <input type="text" class="form-input">
+
+            <input type="text" class="form-input @error('username') form-input-error @enderror" name="username"
+                value="{{old('username')}}">
+
+            @error('username')
+            <div class="form-icon-error">
+                <i class="far fa-times-circle"></i>
+            </div>
+            @enderror
+
         </div>
+
+        @error('username')
+        <div class="form-message-error">
+            {{$message}}
+        </div>
+        @enderror
+
         <div class="form-group">
+
             <label class="form-label">
                 <i class="far fa-envelope"></i>
                 E-mail
             </label>
-            <input type="email" class="form-input">
+
+            <input type="email" class="form-input @error('email') form-input-error @enderror" name="email"
+                value="{{old('email')}}">
+
+            @error('email')
+            <div class="form-icon-error">
+                <i class="far fa-times-circle"></i>
+            </div>
+            @enderror
+
         </div>
+
+        @error('email')
+        <div class="form-message-error">
+            {{$message}}
+        </div>
+        @enderror
+
         <div class="form-group">
+
             <label class="form-label">
                 <i class="fas fa-key"></i>
                 Password
             </label>
-            <input type="password" class="form-input">
+
+            <input type="password" class="form-input @error('password') form-input-error @enderror" name="password">
+
             <div class="show-pass">
                 <i class="far fa-eye"></i>
             </div>
+
+            @error('password')
+            <div class="form-icon-error">
+                <i class="far fa-times-circle"></i>
+            </div>
+            @enderror
+
         </div>
-        <button type="submit" class="button-form">login</button>
+
+        @error('password')
+        <div class="form-message-error">
+            {{$message}}
+        </div>
+        @enderror
+
+        <button type="submit" class="button-form">daftar</button>
     </form>
 </div>
+
+@endsection
+
+@section('script')
+
+<script src="resources/js/form.js"></script>
 
 @endsection
