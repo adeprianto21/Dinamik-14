@@ -23,6 +23,11 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('user.dashboard');
+    }
+
+    public function profile()
+    {
+        return view('user.profile');
     }
 }

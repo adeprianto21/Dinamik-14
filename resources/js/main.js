@@ -15,6 +15,17 @@ $(document).ready(function () {
         }
     });
 
+    $("nav .nav-dinamik-item ul li.dropdown").each(function () {
+        $(this).on("click", function () {
+            $(this).children("i").toggleClass("rotate180");
+            if ($(this).children(".dropdown-menu").css("display") == 'none') {
+                $(this).children(".dropdown-menu").css("display", "block");
+            } else {
+                $(this).children(".dropdown-menu").css("display", "none");
+            }
+        })
+    });
+
     $(".navbar-toggle").click(function () {
         $("#nav-menu-container").css("display", "flex");
         setTimeout(function () {

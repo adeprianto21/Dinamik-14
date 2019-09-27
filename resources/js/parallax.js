@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    $(windows).scroll(function () {
+    $(window).scroll(function () {
         var scrollTop = $(window).scrollTop();
 
         $('.layer').each(function () {

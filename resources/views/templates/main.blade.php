@@ -20,8 +20,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
         integrity="sha256-nXBV7Gr2lU0t+AwKsnS05DYtzZ81oYTXS6kj7LBQHfM=" crossorigin="anonymous" />
 
-    <link rel="icon" href="resources/img/dinamik.png">
-    <link rel="stylesheet" href="resources/css/styles.css">
+    <link rel="icon" href="{{url('/resources/img/dinamik.png')}}">
+
+    <link rel="stylesheet" href="{{url('/resources/css/styles.css')}}">
+
+    @yield('css')
 
     <title>@yield('judul')</title>
 </head>
@@ -46,7 +49,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js"
         integrity="sha256-251s88HEsEfGL2RufZmRwGohKTHDYr9T+aJAazDwlGY=" crossorigin="anonymous"></script>
 
-    <script src="resources/js/main.js"></script>
+    <script src="{{url('resources/js/main.js')}}"></script>
 
     @yield('script')
 

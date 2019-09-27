@@ -1,30 +1,19 @@
-@extends('templates/main')
+@extends('templates.main')
 
-@section('judul', 'Registration | Dinamik')
+@section('css')
+<link rel="stylesheet" href="{{url('/resources/css/dashboard-scrollbar.css')}}">
+@endsection
+
+@section('judul', 'Dashboard | Dinamik')
 
 @section('content')
 
-@include('templates/header')
+@include('templates.dashboard-header')
 
-<div class="bg-form-page">
-    <div class="parallax-go-up">
-        <div class="bg-dinamik">
-        </div>
-        <div class="bg-dinamik">
-        </div>
-    </div>
-
-    <div class="layer" data-speed="0">
-        <img class="gradient" src="resources/img/Parallax/layer1.png" alt="">
-    </div>
-    <div class="layer" data-speed="0">
-        <img class="gradient" src="resources/img/Parallax/layer5.png" alt="">
-    </div>
-</div>
-
-<div
-    style="display: flex; justify-content: center; align-items: center; width: 100%; height: 100vh; position: absolute; top: 0;">
-    <h1 style="color: white;">You're logged in as Users!</h1>
-</div>
+<main>
+    <section class="dashboard">
+        Dashboard
+    </section>
+</main>
 
 @endsection

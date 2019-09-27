@@ -1,7 +1,10 @@
-@extends('templates/main')
+@extends('templates.main')
 
-@section('judul', 'Registration | Dinamik')
+@section('css')
+<link rel="stylesheet" href="{{url('/resources/css/home-scrollbar.css')}}">
+@endsection
 
+@section('judul', 'Reset Password | Dinamik')
 
 @section('content')
 
@@ -15,52 +18,29 @@
         </div>
     </div>
 
-    <div class="layer" data-speed="0">
-        <img class="gradient" src="resources/img/Parallax/layer1.png" alt="">
+    <div class="layer">
+        <img class="gradient" src="{{url('resources/img/Parallax/layer1.png')}}" alt="">
     </div>
-    <div class="layer" data-speed="0">
-        <img class="gradient" src="resources/img/Parallax/layer5.png" alt="">
+    <div class="layer">
+        <img class="gradient" src="{{url('resources/img/Parallax/layer5.png')}}" alt="">
     </div>
 </div>
 
 <div class="header-section">
     <div class="header-stroke regular-italic">
-        <span>daftar</span>
-        <span>daftar</span>
-        <span>daftar</span>
-        <span class="text-white">daftar</span>
+        <span>Reset</span>
+        <span>Reset</span>
+        <span>Reset</span>
+        <span class="text-white">Reset</span>
     </div>
 </div>
 
 <div class="form-container">
 
-    <form method="POST" action="{{route('register')}}">
-
+    <form method="POST" action="{{ route('password.update') }}">
         @csrf
 
-        <div class="form-group">
-
-            <label class="form-label">
-                <i class="far fa-user"></i>
-                Username
-            </label>
-
-            <input type="text" class="form-input @error('username') form-input-error @enderror" name="username"
-                value="{{old('username')}}">
-
-            @error('username')
-            <div class="form-icon-error">
-                <i class="far fa-times-circle"></i>
-            </div>
-            @enderror
-
-        </div>
-
-        @error('username')
-        <div class="form-message-error">
-            {{$message}}
-        </div>
-        @enderror
+        <input type="hidden" name="token" value="{{ $token }}">
 
         <div class="form-group">
 
@@ -96,7 +76,7 @@
             <input type="password" class="form-input @error('password') form-input-error @enderror" name="password">
 
             <div class="show-pass">
-                <i class="far fa-eye"></i>
+                <i class="far fa-eye-slash"></i>
             </div>
 
             @error('password')
@@ -123,10 +103,11 @@
             <input type="password" class="form-input" name="password_confirmation">
 
             <div class="show-pass">
-                <i class="far fa-eye"></i>
+                <i class="far fa-eye-slash"></i>
             </div>
         </div>
-        <button type="submit" class="button-form">daftar</button>
+
+        <button type="submit" class="button-form" style="margin-top: 40px; margin-left: auto">Reset Password</button>
     </form>
 </div>
 
@@ -134,6 +115,6 @@
 
 @section('script')
 
-<script src="resources/js/form.js"></script>
+<script src="{{url('resources/js/form.js')}}"></script>
 
 @endsection

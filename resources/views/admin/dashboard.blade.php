@@ -15,10 +15,10 @@
     </div>
 
     <div class="layer" data-speed="0">
-        <img class="gradient" src="resources/img/Parallax/layer1.png" alt="">
+        <img class="gradient" src="{{url('resources/img/Parallax/layer1.png')}}" alt="">
     </div>
     <div class="layer" data-speed="0">
-        <img class="gradient" src="resources/img/Parallax/layer5.png" alt="">
+        <img class="gradient" src="{{url('resources/img/Parallax/layer5.png')}}" alt="">
     </div>
 </div>
 

@@ -15,26 +15,26 @@
         </div>
     </div>
 
-    <div class="layer" data-speed="0">
-        <img class="gradient" src="resources/img/Parallax/layer1.png" alt="">
+    <div class="layer">
+        <img class="gradient" src="{{url('resources/img/Parallax/layer1.png')}}" alt="">
     </div>
-    <div class="layer" data-speed="0">
-        <img class="gradient" src="resources/img/Parallax/layer5.png" alt="">
+    <div class="layer">
+        <img class="gradient" src="{{url('resources/img/Parallax/layer5.png')}}" alt="">
     </div>
 </div>
 
 <div class="header-section">
     <div class="header-stroke regular-italic">
-        <span>login</span>
-        <span>login</span>
-        <span>login</span>
-        <span class="text-white">login</span>
+        <span>admin</span>
+        <span>admin</span>
+        <span>admin</span>
+        <span class="text-white">admin</span>
     </div>
 </div>
 
 <div class="form-container">
 
-    <form method="POST" action="{{route('register')}}">
+    <form method="POST" action="{{route('admin/login')}}">
 
         @csrf
 
@@ -65,30 +65,6 @@
         <div class="form-group">
 
             <label class="form-label">
-                <i class="far fa-envelope"></i>
-                E-mail
-            </label>
-
-            <input type="email" class="form-input @error('email') form-input-error @enderror" name="email"
-                value="{{old('email')}}">
-
-            @error('email')
-            <div class="form-icon-error">
-                <i class="far fa-times-circle"></i>
-            </div>
-            @enderror
-
-        </div>
-
-        @error('email')
-        <div class="form-message-error">
-            {{$message}}
-        </div>
-        @enderror
-
-        <div class="form-group">
-
-            <label class="form-label">
                 <i class="fas fa-key"></i>
                 Password
             </label>
@@ -96,7 +72,7 @@
             <input type="password" class="form-input @error('password') form-input-error @enderror" name="password">
 
             <div class="show-pass">
-                <i class="far fa-eye"></i>
+                <i class="far fa-eye-slash"></i>
             </div>
 
             @error('password')
@@ -113,7 +89,7 @@
         </div>
         @enderror
 
-        <button type="submit" class="button-form">daftar</button>
+        <button type="submit" class="button-form">login</button>
     </form>
 </div>
 
@@ -121,6 +97,6 @@
 
 @section('script')
 
-<script src="resources/js/form.js"></script>
+<script src="{{url('resources/js/form.js')}}"></script>
 
 @endsection

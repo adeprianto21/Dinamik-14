@@ -44,4 +44,16 @@ $(document).ready(function () {
         });
     });
 
+    if ($("#check-column").length) {
+        $("#check-column").on("click", function () {
+            if ($(this).children(".check-icon").css("display") == "block") {
+                $(this).children(".check-icon").css("display", "none");
+                $("#remember-me").val("false");
+            } else {
+                $(this).children(".check-icon").css("display", "block");
+                $("#remember-me").val("true");
+            }
+        });
+    }
+
 });

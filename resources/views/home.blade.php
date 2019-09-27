@@ -1,4 +1,8 @@
-@extends('templates/main')
+@extends('templates.main')
+
+@section('css')
+<link rel="stylesheet" href="{{url('/resources/css/home-scrollbar.css')}}">
+@endsection
 
 @section('judul', 'Home | Dinamik')
 
@@ -13,36 +17,36 @@
     </div>
 
     <div class="layer" data-speed="0">
-        <img class="gradient" src="resources/img/Parallax/layer1.png" alt="">
+        <img class="gradient" src="{{url('resources/img/Parallax/layer1.png')}}" alt="">
     </div>
     <div class="layer" data-speed="-0.70">
         <div class="layer-2">
-            <img src="resources/img/Parallax/layer2.png" class="map" alt="">
+            <img src="{{url('resources/img/Parallax/layer2.png')}}" class="map" alt="">
             <span class="diesnatalis">diesnatalis</span>
             <span class="nov-2019">November 2019</span>
             <span class="number">008980555555400000</span>
         </div>
     </div>
     <div class="layer layer-3" data-speed="-0.63">
-        <img src="resources/img/Parallax/layer3.png" class="dinamik" alt="">
+        <img src="{{url('resources/img/Parallax/layer3.png')}}" class="dinamik" alt="">
     </div>
     <div class="layer" data-speed="-0.20">
         <div class="layer-4">
-            <img src="resources/img/Parallax/layer4.png" class="tv" alt="">
-            <img src="resources/img/rotate.png" class="rotate-scroll" alt="">
+            <img src="{{url('resources/img/Parallax/layer4.png')}}" class="tv" alt="">
+            <img src="{{url('resources/img/rotate.png')}}" class="rotate-scroll" alt="">
         </div>
     </div>
     <div class="layer" data-speed="0">
-        <img src="resources/img/Parallax/layer5.png" class="gradient" alt="">
+        <img src="{{url('resources/img/Parallax/layer5.png')}}" class="gradient" alt="">
     </div>
 </section>
 
-<header id="header-home">
+<header class="header" id="header-home">
 
-    <nav>
+    <nav class="nav">
         <div class="brand-dinamik">
             <a href="{{route('home')}}">
-                <img src="resources/img/Parallax/layer3.png" alt="">
+                <img src="{{url('resources/img/Parallax/layer3.png')}}" alt="">
             </a>
         </div>
         <div class="navbar-toggle">
@@ -58,11 +62,62 @@
             <div class="nav-dinamik-item" id="nav-item-list">
                 <ul>
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li><a href="#">Competition</a></li>
+                    <li class="dropdown">
+                        <span>Competition</span>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="dropdown-menu">
+                            <a href="{{ route('dashboard') }}">Dashboard</a>
+                            <a href="{{ route('dashboard') }}">Dashboard</a>
+                        </div>
+                    </li>
                     <li><a href="#">Acara</a></li>
                     <li><a href="#">Info</a></li>
+                    <li>|</li>
+
+                    @if ((!Auth::check()) && (!Auth::guard('admin')->check()))
                     <li><a href="{{route('register')}}">Register</a></li>
                     <li><a href="{{route('login')}}">Login</a></li>
+                    @endif
+
+                    @auth('web')
+                    <li class="dropdown">
+                        <span>
+                            {{Auth::user()->username}}
+                        </span>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="dropdown-menu">
+                            <a href="{{ route('dashboard') }}">Dashboard</a>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                    @endauth
+
+                    @auth('admin')
+                    <li class="dropdown">
+                        <span>
+                            {{Auth::guard('admin')->user()->username}}
+                        </span>
+                        <i class="fas fa-chevron-down"></i>
+                        <div class="dropdown-menu">
+                            <a href="{{ route('dashboard') }}">Dashboard</a>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </div>
+                    </li>
+                    @endauth
                 </ul>
             </div>
         </div>
@@ -123,23 +178,23 @@
 
         <div class="competition-slide owl-carousel">
             <div class="competition-container">
-                <img src="resources/img/Parallax/layer2.png" alt="">
+                <img src="{{url('resources/img/Parallax/layer2.png')}}" alt="">
                 <span>Lomba 1</span>
             </div>
             <div class="competition-container">
-                <img src="resources/img/Parallax/layer2.png" alt="">
+                <img src="{{url('resources/img/Parallax/layer2.png')}}" alt="">
                 <span>Lomba 2</span>
             </div>
             <div class="competition-container">
-                <img src="resources/img/Parallax/layer2.png" alt="">
+                <img src="{{url('resources/img/Parallax/layer2.png')}}" alt="">
                 <span>Lomba 3</span>
             </div>
             <div class="competition-container">
-                <img src="resources/img/Parallax/layer2.png" alt="">
+                <img src="{{url('resources/img/Parallax/layer2.png')}}" alt="">
                 <span>Lomba 4</span>
             </div>
             <div class="competition-container">
-                <img src="resources/img/Parallax/layer2.png" alt="">
+                <img src="{{url('resources/img/Parallax/layer2.png')}}" alt="">
                 <span>Lomba 5</span>
             </div>
         </div>
@@ -147,11 +202,13 @@
         <div class="competition-button-group">
             <div class="competition-prev">
                 <button id="prev-competition-carousel">
-                    <</button> </div> <div class="button-login">
-                        <a href="#"></a>
+                    &#60;
+                </button>
             </div>
             <div class="competition-next">
-                <button id="next-competition-carousel">></button>
+                <button id="next-competition-carousel">
+                    &#62;
+                </button>
             </div>
         </div>
 
@@ -159,13 +216,13 @@
 
 </main>
 
-@include('templates/footer')
+@include('templates.footer')
 
 @endsection
 
 @section('script')
 
-<script src="resources/js/owl-carousel.js"></script>
-<script src="resources/js/parallax.js"></script>
+<script src="{{url('resources/js/owl-carousel.js')}}"></script>
+<script src="{{url('resources/js/parallax.js')}}"></script>
 
 @endsection
