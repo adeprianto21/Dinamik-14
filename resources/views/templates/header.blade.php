@@ -1,4 +1,4 @@
-<header class="header" id="header-home">
+<header class="header" id="header-top">
 
     <nav class="nav">
         <div class="brand-dinamik">
@@ -19,17 +19,22 @@
             <div class="nav-dinamik-item" id="nav-item-list">
                 <ul>
                     <li><a href="{{route('home')}}">Home</a></li>
-                    <li class="dropdown">
-                        <span>Competition</span>
-                        <i class="fas fa-chevron-down"></i>
-                        <div class="dropdown-menu">
-                            <a href="{{ route('dashboard') }}">Dashboard</a>
-                            <a href="{{ route('dashboard') }}">Dashboard</a>
+                    <li class="dinamik-dropdown" tabindex="-1">
+                        <span>
+                            Competition
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                        <div class="dinamik-dropdown-menu">
+                            <a href="#">PCA</a>
+                            <a href="#">Net Comp</a>
+                            <a href="#">CSPC</a>
+                            <a href="#">Web Dev</a>
+                            <a href="#">Animation</a>
                         </div>
                     </li>
                     <li><a href="#">Acara</a></li>
                     <li><a href="#">Info</a></li>
-                    <li>|</li>
+                    <li class="divider">|</li>
 
                     @if ((!Auth::check()) && (!Auth::guard('admin')->check()))
                     <li><a href="{{route('register')}}">Register</a></li>
@@ -37,15 +42,15 @@
                     @endif
 
                     @auth('web')
-                    <li class="dropdown">
+                    <li class="dinamik-dropdown user" tabindex="-1">
                         <span>
                             {{Auth::user()->username}}
+                            <i class="fas fa-chevron-down"></i>
                         </span>
-                        <i class="fas fa-chevron-down"></i>
-                        <div class="dropdown-menu">
+                        <div class="dinamik-dropdown-menu">
                             <a href="{{ route('dashboard') }}">Dashboard</a>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
+                                                             document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 
@@ -57,15 +62,15 @@
                     @endauth
 
                     @auth('admin')
-                    <li class="dropdown">
+                    <li class="dinamik-dropdown user" tabindex="-1">
                         <span>
                             {{Auth::guard('admin')->user()->username}}
+                            <i class="fas fa-chevron-down"></i>
                         </span>
-                        <i class="fas fa-chevron-down"></i>
-                        <div class="dropdown-menu">
+                        <div class="dinamik-dropdown-menu">
                             <a href="{{ route('dashboard') }}">Dashboard</a>
                             <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                         document.getElementById('logout-form').submit();">
+                                                             document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
 

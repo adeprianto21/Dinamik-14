@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('username', '100')->unique();
             $table->string('email')->unique();
+            $table->string('phone');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
@@ -30,6 +31,9 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
+
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('users');
+        Schema::enableForeignKeyConstraints();
     }
 }

@@ -53,4 +53,12 @@ class LoginController extends Controller
     {
         return 'username';
     }
+
+    protected function attemptLogin(Request $request)
+    {
+        return $this->guard()->attempt(
+            $this->credentials($request),
+            $request->filled('remember')
+        );
+    }
 }

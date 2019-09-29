@@ -35,6 +35,7 @@
     </div>
 </div>
 
+
 <div class="form-container">
 
     <form method="POST" action="{{route('login')}}">
@@ -58,7 +59,7 @@
 
             <input type="text"
                 class="form-input @error('username') @if ($message == 'The username field is required.') form-input-error @endif @enderror"
-                name="username" value="{{old('username')}}">
+                name="username" value="{{old('username')}}" required>
 
 
             @error('username')
@@ -86,7 +87,8 @@
                 Password
             </label>
 
-            <input type="password" class="form-input @error('password') form-input-error @enderror" name="password">
+            <input type="password" class="form-input @error('password') form-input-error @enderror" name="password"
+                required>
 
             <div class="show-pass">
                 <i class="far fa-eye-slash"></i>

@@ -49,7 +49,7 @@
             </label>
 
             <input type="text" class="form-input @error('username') form-input-error @enderror" name="username"
-                value="{{old('username')}}">
+                value="{{old('username')}}" required>
 
             @error('username')
             <div class="form-icon-error">
@@ -73,7 +73,7 @@
             </label>
 
             <input type="email" class="form-input @error('email') form-input-error @enderror" name="email"
-                value="{{old('email')}}">
+                value="{{old('email')}}" required>
 
             @error('email')
             <div class="form-icon-error">
@@ -92,11 +92,36 @@
         <div class="form-group">
 
             <label class="form-label">
+                <i class="fas fa-phone-alt"></i>
+                Phone Number
+            </label>
+
+            <input type="number" class="form-input @error('phone') form-input-error @enderror" name="phone"
+                value="{{old('phone')}}" required>
+
+            @error('phone')
+            <div class="form-icon-error">
+                <i class="far fa-times-circle"></i>
+            </div>
+            @enderror
+
+        </div>
+
+        @error('phone')
+        <div class="form-message-error">
+            {{$message}}
+        </div>
+        @enderror
+
+        <div class="form-group">
+
+            <label class="form-label">
                 <i class="fas fa-key"></i>
                 Password
             </label>
 
-            <input type="password" class="form-input @error('password') form-input-error @enderror" name="password">
+            <input type="password" class="form-input @error('password') form-input-error @enderror" name="password"
+                required>
 
             <div class="show-pass">
                 <i class="far fa-eye-slash"></i>
@@ -123,7 +148,7 @@
                 Re-Password
             </label>
 
-            <input type="password" class="form-input" name="password_confirmation">
+            <input type="password" class="form-input" name="password_confirmation" required>
 
             <div class="show-pass">
                 <i class="far fa-eye-slash"></i>
@@ -134,7 +159,7 @@
     </form>
 
     <div class="link">
-        <span class="link-span">Already have an account? <a href="{{route('register')}}" class="link-href">Login
+        <span class="link-span">Already have an account? <a href="{{route('login')}}" class="link-href">Login
                 Here</a></span>
     </div>
 </div>

@@ -9,6 +9,11 @@
 }
 
 @font-face {
+    font-family: "Mont Semi Bold";
+    src: url(../font/Mont/Fontfabric---Mont-SemiBold.otf);
+}
+
+@font-face {
     font-family: "Mont Bold";
     src: url(../font/Mont/Fontfabric---Mont-Bold.otf);
 }
@@ -39,6 +44,12 @@
 body{
     background-color: black;
     font-family: "Mont Regular";
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
 
 /* div {
@@ -214,24 +225,29 @@ section#landing-page-hero {
     color: white;
 }
 
-.nav .nav-dinamik-item ul li.dropdown {
+.nav .nav-dinamik-item ul li.dinamik-dropdown {
     display: inline-block;
     position: relative;
 }
 
-.nav .nav-dinamik-item ul li.dropdown:hover {
+.nav .nav-dinamik-item ul li.dinamik-dropdown:hover {
     cursor: pointer;
 }
 
-.nav .nav-dinamik-item ul li.dropdown i {
-    transition: all 0.5s ease;
-}
-
-.nav .nav-dinamik-item ul li.dropdown span {
+.nav .nav-dinamik-item ul li.dinamik-dropdown span {
+    position: relative;
     margin-right: 5px;
 }
 
-.nav .nav-dinamik-item ul li.dropdown .dropdown-menu {
+.nav .nav-dinamik-item ul li.dinamik-dropdown span i {
+    position: relative;
+    top: 1px;
+    margin-left: 5px;
+    transition: all 0.5s ease;
+}
+
+
+.nav .nav-dinamik-item ul li.dinamik-dropdown .dinamik-dropdown-menu {
     display: none;
     position: absolute;
     top: 150%;
@@ -244,7 +260,7 @@ section#landing-page-hero {
     transition: all 0.3s ease;
 }
 
-.nav .nav-dinamik-item ul li.dropdown .dropdown-menu a {
+.nav .nav-dinamik-item ul li.dinamik-dropdown .dinamik-dropdown-menu a {
     display: block;
     padding: 10px 15px;
     color: black;
@@ -252,7 +268,7 @@ section#landing-page-hero {
     transition: all 0.2s ease;
 }
 
-.nav .nav-dinamik-item ul li.dropdown .dropdown-menu a:hover {
+.nav .nav-dinamik-item ul li.dinamik-dropdown .dinamik-dropdown-menu a:hover {
     color: white;
     background-color: #d600ff;
 }
@@ -273,9 +289,10 @@ section#landing-page-hero {
 
 .close-btn-group {
     position: absolute;
-    top: 20px;
+    top: 30px;
     right: 30px;
     display: none;
+    z-index: 9;
 }
 
 .change .bar1 {
@@ -288,34 +305,88 @@ section#landing-page-hero {
 
 .overlay-navbar {
     position: fixed;
-    height: 0%;
+    height: 0vh;
     width: 100%;
     z-index: 999;
     top: 0;
     left: 0;
     background-color: rgba(0,0,0, 1);
-    overflow-y: auto;
     transition: all ease 0.5s;
+    text-align: center;
     display: flex;
     align-items: center;
+    justify-content: center;
+    overflow: auto;
 }
 
 .overlay-navbar-item {
-    margin: auto;
-    padding: 50px 0px;
+    margin: 50px 0px;
+    position: relative;
+    width: 100%;
+    top: 0;
+    transition: 0.3s all ease;
 }
 
 .overlay-navbar-item ul li {
+    display: block;
     list-style: none;
-    text-align: center;
+}
+
+.overlay-navbar-item ul li.divider {
+    display: none;
 }
 
 .overlay-navbar-item ul li a {
     display: inline-block;
     text-decoration: none;
     margin-top: 15px;
-    font-size: 24px;
+    font-size: 22px;
     color: white;
+}
+
+.overlay-navbar-item ul li.dinamik-dropdown {
+    display: inline-block;
+    text-decoration: none;
+    margin-top: 15px;
+    margin-bottom: 0px;
+    font-size: 22px;
+    color: white;
+}   
+
+.overlay-navbar-item ul li.dinamik-dropdown span {
+    position: relative;
+}
+
+.overlay-navbar-item ul li.dinamik-dropdown i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: -30px;
+}
+
+.overlay-navbar-item ul li.dinamik-dropdown .dinamik-dropdown-menu {
+    border-radius: 10px;
+    min-width: 120px;
+    transition: all 0.3s ease;
+    background-color: white;
+    margin-top: 0px;
+    max-height: 0px;
+    overflow: auto;
+    /* border: 1px solid red; */
+    transition: 0.3s all ease;
+}
+
+.overlay-navbar-item ul li.dinamik-dropdown .dinamik-dropdown-menu a {
+    display: block;
+    color: black;
+    padding: 15px 30px;
+    margin: 0;
+    width: 100%;
+}
+
+.overlay-navbar-item ul li.dinamik-dropdown .dinamik-dropdown-menu a:hover {
+    color: white;
+    background-color: #d600ff;
 }
 
 #abstraction-section {
@@ -671,6 +742,12 @@ a.link-href {
     width: 180px;
 }
 
+.nav-side-bar .hide-dashboard {
+    display: none;
+    position: absolute;
+    color: white;
+}
+
 .username-bar {
     display: inline-block;
     margin-top: 35px;
@@ -689,45 +766,56 @@ a.link-href {
 }
 
 .nav-side-list-container ul {
+    display: inline-block;
     list-style: none;
-    width: 110px;
     margin: auto;
     padding: 30px 0px;
 }
 
-.nav-side-list-container ul li {
-    text-align: left;
+.nav-side-list-item {
+    display: flex;
+    align-items: center;
     margin-bottom: 25px;
     position: relative;
+    text-align: left;
 }
 
-.nav-side-list-container ul li a {
+.nav-side-list-item a i {
+    color: #555;
+    width: 35px;
+}
+
+.nav-side-list-item a {
+    display: block;
     color: #555;
     text-decoration: none;
 }
 
-.nav-side-list-container ul li::before {
-    content: 'X';
-    position: absolute;
-    color: #555;
+.nav-side-list-item:hover a{
+    color: white;
+}
+
+.nav-side-list-item:hover i{
+    color: white;
+}
+
+.active a{
+    color: white;
+}
+
+.active a i{
+    color: white;
+}
+
+.dashboard-fullscreen {
+    display: none;
+    position: fixed;
     top: 0;
-    left: -20px;
-}
-
-.nav-side-list-container ul li:hover a {
-    color: white;
-}
-
-.nav-side-list-container ul li:hover::before {
-    color: white;
-}
-
-.nav-side-list-container ul li.active a {
-    color: white;
-}
-
-.nav-side-list-container ul li.active::before {
-    color: white;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0,0,0, 0.5);
+    z-index: 100;
 }
 
 .dashboard-header {
@@ -739,16 +827,20 @@ a.link-href {
 .dashboard-header .header-container {
     display: flex;
     justify-content: space-between;
-    padding: 40px 50px;
+    padding: 30px 50px;
 }
 
-.dashboard-header .header-container .team-name {
+.dashboard-header .header-container .show-dashboard {
+    display: none;
+}
+
+.dashboard-header .header-container .team-info-section .team-name {
     display: block;
     font-family: "Mont Bold";
     font-size: 28px;
 }
 
-.dashboard-header .header-container .team-competition {
+.dashboard-header .header-container .team-info-section .team-competition {
     display: block;
     font-family: "Mont Regular Italic";
     font-size: 14px;
@@ -796,10 +888,151 @@ a.link-href {
 
 .dashboard {
     margin-left: 250px;
-    padding: 70px 70px;
+    padding: 0px 70px;
     color: white;
     background-color: #111;
-    min-height: 100vh;
+    min-height: 1000vh;
+}
+
+.dashboard-section {
+    position: relative;
+    z-index: 0;
+    padding: 30px 40px;
+    background-color: black;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.dashboard-section-header {
+    display: block;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-family: "Mont Bold";
+    letter-spacing: 3px;
+}
+
+table {
+    width: 100%;
+}
+
+.dashboard-form-row td {
+    padding: 15px 15px;
+}
+
+.dashboard-form-row td label {
+    margin-bottom: -5px;
+}
+
+.dashboard-form-text {
+    background-color: #333;
+    border: 3px solid #333;
+    border-radius: 20px;
+    outline: none;
+    padding: 5px 30px;
+    color: white;
+    margin-left: 20px;
+    width: 100%;
+}
+
+.dashboard-form-text:-webkit-autofill {
+    animation-name: autofill-dashboard;
+    animation-fill-mode: both;
+}
+
+.select-container {
+    display: inline-block;
+    position: relative;
+    margin-left: 20px;
+}
+
+.dashboard-form-select {
+    background-color: #333;
+    border: 3px solid #333;
+    border-radius: 20px;
+    outline: none;
+    padding: 5px 40px 5px 30px;
+    color: white;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+}
+
+.dashboard-form-select:hover {
+    cursor: pointer;
+}
+
+.dashboard-form-select option {
+    background-color: #333;
+    border: 3px solid #333;
+    color: white;
+    padding: 10px 0px;
+}
+
+.dashboard-form-arrow {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.dashboard-form-button {
+    display: block;
+    margin-top: 10px;
+    margin-left: auto;
+    padding: 5px 30px;
+    background-color: #d600ff;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    transition: 0.3s all ease;
+}
+
+.dashboard-form-button:focus  {
+    outline: none;
+}
+
+.dashboard-form-button:hover  {
+    background-color: #6d0083;
+}
+
+.dashboard-form-error {
+    color: red;
+    font-size: 14px;
+    margin-left: 30px;
+}
+
+.modal-content {
+    background-color: #111;
+    color: white;
+}
+
+.modal-title {
+    color: red;
+}
+
+.modal-title i {
+    color: red;
+    margin-right: 5px;
+}
+
+.modal-header {
+    border-bottom: 0.5px solid black;
+}
+
+.modal-footer {
+    border-top: 0.5px solid black;;
+}
+
+.close {
+    color: white;
+}
+
+.close:hover {
+    color: white;
+}
+
+.close:focus {
+    outline: none;
 }
 
 /* ============================================ ANIMATION =========================================== */
@@ -808,6 +1041,13 @@ a.link-href {
     to {
         color: white;
         background-color: rgba(0,0,0,0);
+    }
+}
+
+@keyframes autofill-dashboard {
+    to {
+        color: white;
+        background-color: #333;
     }
 }
 
@@ -894,15 +1134,18 @@ a.link-href {
         right: -30px;
     }
 
-    nav {
+    .nav {
         padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-
-    nav .brand-dinamik img {
+    
+    .nav .brand-dinamik img {
         width: 130px;
     }
 
-    nav #nav-menu-container {
+    #nav-dinamik-item-container {
         display: none;
     }
     
@@ -915,13 +1158,17 @@ a.link-href {
         display: block;
     }
 
+    .overlay-navbar-item {
+        top: 70px;
+    }
+
     #header-home {
         transform: translateY(-110px);
         top: 110px;
     }
 
     #abstraction-section {
-        margin-top: -60px;
+        margin-top: -70px;
     }
 
     .header-section .header-animation span {
@@ -931,10 +1178,502 @@ a.link-href {
     .dinamik-abstract {
         font-size: 1em;
     }
+
+    /* ================================================= FORM SECTION ============================================ */
+    
+    .form-container {
+        top: 0px;
+        width: 500px;
+        padding: 50px 50px;
+        margin-bottom: 50px;
+    }
+
+    .form-container::before {
+        top: -90px;
+        height: 120px;
+    }
+
+    form {
+        position: relative;
+        z-index: 999;
+        font-size: 14px;
+    }
+
+    .form-label-focus {
+        font-size: 13px;
+    }
+
+    .form-icon-error {
+        left: -20px;
+    }
+    
+    .form-message-error {
+        font-size: 14px;
+    }
+    
+    .remember .check-column {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .remember .check-column .remember-text {
+        font-size: 14px;
+        right: -110px;
+        top: 1px;
+    }
+    
+    .button-form {
+        padding: 5px 25px;
+    }
+    
+    .link {
+        font-size: 12px;
+        margin-bottom: 30px;
+    }
+    
+    span.link-span {
+        display: block;
+        text-align: center;
+        margin-top: 15px;
+    }
+    
+    a.link-href {
+        text-decoration: none;
+        color: #ffee00;
+    }
+
+    .alert {
+        margin-top: 25px;
+    }
+
+
+    /* ====================================== DASHBOARD ========================================== */
+
+    .nav-side-bar {
+        width: 13%;
+        overflow: auto;
+        transition: 0.5s all ease;
+    }
+    
+    .nav-side-bar .nav-side-brand {
+        margin-top: 25px;
+    }
+
+    .nav-side-bar .hide-dashboard {
+        top: 30px;
+        right: 30px;
+        font-size: 20px;
+    }
+    
+    .nav-side-bar .nav-side-brand a img {
+        width: 45px;
+        transition: 0.5s all ease;
+    }
+    
+    .username-bar {
+        display: none;
+        margin-top: 30px;
+        padding: 5px 60px;
+    }
+    
+    .username-bar span {
+        color: white;
+        font-size: 14px;
+    }
+    
+    .nav-side-list-container {
+        margin-top: 10px;
+    }
+
+    .nav-side-list-item {
+        font-size: 20px;
+        text-align: center;
+        transition: 0.5s all ease;
+    }
+
+    .nav-side-list-item a {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .nav-side-list-item a i {
+        width: 30px;
+    }
+    
+    .dashboard-header {
+        position: fixed;
+        margin-left: 13%;
+        top: 0;
+        width: 87%;
+        box-shadow: 0px 0px 10px 0px rgb(94, 92, 92);
+        z-index: 99;
+    }
+    
+    .dashboard-header .header-container {
+        padding: 20px 35px;
+    }
+
+    .dashboard-header .header-container .show-dashboard {
+        display: block;
+    }
+
+    .dashboard-header .header-container .show-dashboard:hover {
+        cursor: pointer;
+    }
+    
+    .dashboard-header .header-container .team-info-section .team-name {
+        font-size: 20px;
+    }
+    
+    .dashboard-header .header-container .team-info-section .team-competition {
+        font-size: 11px;
+    }
+    
+    .back-home-section {
+        padding: 15px 10px;
+    }
+    
+    .message-back {
+        font-size: 10px;
+    }
+    
+    .dashboard {
+        margin-top: 90px;
+        margin-left: 13%;
+        padding: 30px 30px;
+    }
+
+    .dashboard-section {
+        padding: 20px 30px;
+        background-color: black;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        overflow: auto;
+    }
+    
+    .dashboard-section-header {
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+    }
+    
+    .dashboard-form-row td {
+        padding: 10px 15px;
+    }
+    
+    .dashboard-form-text {
+        margin-left: 10px;
+        margin-right: 20px;
+        width: auto;
+    }
+    
+    .dashboard-form-text:-webkit-autofill {
+        animation-name: autofill-dashboard;
+        animation-fill-mode: both;
+    }
+    
+    .select-container {
+        margin-left: 10px;
+    }
+    
+    .dashboard-form-select {
+        width: auto;
+    }
+    
+    .dashboard-form-button {
+        margin-top: 10px;
+        margin-bottom: 5px;
+        margin-right: 10px;
+    }
+    
+    .dashboard-form-error {
+        color: red;
+        font-size: 14px;
+        margin-left: 30px;
+    }
+
 }
 
 /* ===================================== RESOLUSI < 450px (POSISI POTRAIT) ======================================= */
 
 @media only screen and (max-width: 450px) {
+    .layer-2 {
+        top: 50px;
+    }
+
+    .layer-2 .map {
+        display: block;
+        width: 280px;
+        height: 230px;
+        border-radius: 10px;
+    }
+
+    .layer-3 {
+        top: 135px;
+    }
+    
+    .layer-3 .dinamik {
+        display: block;
+        width: 220px;
+    }
+
+    .layer-4 {
+        position: absolute;
+        top: 235px;
+        display: inline-block;
+    }
+    
+    .layer-4 .tv {
+        display: block;
+        width: 230px;
+        height: 280px;
+    }
+    
+    .layer-4 .rotate-scroll {
+        position: absolute;
+        width: 80px;
+        top: 150px;
+        left: 80px;
+        animation: rotate 10s infinite linear;
+    }
+
+    #header-home {
+        transform: translateY(-135px);
+        top: 135px;
+    }
+
+    .nav {
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .nav .brand-dinamik img {
+        width: 130px;
+    }
+
+    #nav-dinamik-item-container {
+        display: none;
+    }
+
+    .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 4px;
+        background-color: white;
+        margin: 6px 0px;
+        border-radius: 5px;
+        transition: all 0.2s ease;
+    }
+
+    .overlay-navbar {
+        font-size: 0.5em;
+    }
+
+    .overlay-navbar-item {
+        top: 0px;
+    }
+
+    .header-section {
+        top: 20px;
+    }
+    
+    .header-section .header-stroke {
+        line-height: 25px;
+    }
+    
+    .header-section .header-stroke span {
+        font-size: 1.8em;
+    }
+
+/* ================================================= FORM SECTION ============================================ */
+    
+    .form-container {
+        top: 30px;
+        width: 300px;
+        padding: 20px 30px;
+        margin-bottom: 50px;
+    }
+
+    .form-container::before {
+        top: -70px;
+        height: 80px;
+    }
+
+    form {
+        position: relative;
+        z-index: 999;
+        font-size: 12px;
+    }
+
+    .form-label-focus {
+        font-size: 11px;
+    }
+
+    .form-icon-error {
+        left: -20px;
+    }
+    
+    .form-message-error {
+        font-size: 11px;
+    }
+    
+    .remember .check-column {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .remember .check-column .remember-text {
+        font-size: 12px;
+        right: -95px;
+        top: 1px;
+    }
+    
+    .button-form {
+        padding: 5px 25px;
+    }
+    
+    .link {
+        font-size: 11px;
+        margin-bottom: 30px;
+    }
+    
+    span.link-span {
+        display: block;
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    a.link-href {
+        text-decoration: none;
+        color: #ffee00;
+    }
+
+    .alert {
+        margin-top: 25px;
+    }
+
+    /* ====================================== DASHBOARD ========================================== */
+
+    .nav-side-bar {
+        width: 0px;
+        overflow: auto;
+    }
+    
+    .nav-side-bar .nav-side-brand {
+        margin-top: 30px;
+    }
+    
+    .nav-side-bar .nav-side-brand a img {
+        width: 150px;
+    }
+
+    .nav-side-bar .hide-dashboard {
+        top: 30px;
+        right: 20px;
+        font-size: 20px;
+    }
+    
+    .username-bar {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 5px 60px;
+    }
+    
+    .username-bar span {
+        color: white;
+        font-size: 14px;
+    }
+    
+    .nav-side-list-container {
+        margin-top: 10px;
+    }
+
+    .nav-side-list-item {
+        font-size: 16px;
+        text-align: left;
+        transition: 0.5s all ease;
+    }
+    
+    .nav-side-list-item a i {
+        width: 35px;
+    }
+
+    .nav-side-list-item a span {
+        display: none;
+    }
+    
+    .dashboard-header {
+        position: fixed;
+        margin-left: 0px;
+        top: 0;
+        width: 100%;
+    }
+    
+    .dashboard-header .header-container {
+        padding: 20px 35px;
+    }
+
+    .dashboard-header .header-container .show-dashboard {
+        display: block;
+    }
+
+    .dashboard-header .header-container .team-info-section {
+        margin-left: auto;
+        text-align: right;
+    }
+    
+    .dashboard-header .header-container .team-info-section .team-name {
+        font-size: 18px;
+    }
+    
+    .dashboard-header .header-container .team-info-section .team-competition {
+        font-size: 11px;
+    }
+    
+    .back-home-section {
+        display: none;
+    }
+    
+    .dashboard {
+        margin-top: 80px;
+        margin-left: 0px;
+        padding: 30px 20px;
+    }
+    
+    .dashboard-section {
+        padding: 20px 30px;
+        background-color: black;
+        border-radius: 10px;
+        margin-bottom: 30px;
+        overflow: auto;
+    }
+
+    .dashboard-form-text {
+        padding: 5px 20px;
+        color: white;
+        margin-left: 0px;
+    }
+    
+    .select-container {
+        display: inline-block;
+        position: relative;
+        margin-left: 0px;
+    }
+    
+    .dashboard-form-select {
+        width: auto;
+    }
+
+    .dashboard-form-error {
+        font-size: 12px;
+    }
+
+    .modal {
+        font-size: 12px;
+    }
 
 }

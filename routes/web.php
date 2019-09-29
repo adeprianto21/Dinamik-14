@@ -11,7 +11,10 @@
 |
 */
 
+// ===================================== Admin Route Section ============================================
+
 // Admin Authentication Routes...
+
 Route::prefix('admin')->group(function () {
     Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('admin/login');
     Route::post('/login', 'AdminAuth\LoginController@login')->name('admin/login');
@@ -20,6 +23,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/', 'AdminsController@index')->name('admin');
 });
 
+// ===================================== User Route Section ============================================
 
 // User Authentication Routes...
 Route::get('login', 'UserAuth\LoginController@showLoginForm')->name('login');
@@ -36,19 +40,13 @@ Route::get('password/reset/{token}', 'UserAuth\ResetPasswordController@showReset
 Route::post('password/reset', 'UserAuth\ResetPasswordController@reset')->name('password.update');
 Route::get('password/reset', 'UserAuth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
 
+// User Dashboard
 Route::prefix('dashboard')->group(function () {
     Route::get('/', 'UsersController@index')->name('dashboard');
     Route::get('/profile', 'UsersController@profile')->name('dashboard.profile');
+    Route::post('/profile', 'UsersController@updateTeam')->name('dashboard.profile.update.team');
 });
 
+// ===================================== Guest Section ============================================
+
 Route::get('/', 'HomeController@index')->name('home');
-
-// Route::get('/registration', function () {
-//     return view('registration');
-// });
-
-// Route::get('/login', function () {
-//     return view('login');
-// });
-
-// Route::get('/home', 'UsersController@index')->name('home');

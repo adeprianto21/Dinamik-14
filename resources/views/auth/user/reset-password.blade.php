@@ -37,6 +37,14 @@
 
 <div class="form-container">
 
+    @error('email')
+    @if ($message == 'This password reset token is invalid.')
+    <div class="alert alert-danger mb-5">
+        {{$message}}
+    </div>
+    @endif
+    @enderror
+
     <form method="POST" action="{{ route('password.update') }}">
         @csrf
 
@@ -49,21 +57,26 @@
                 E-mail
             </label>
 
-            <input type="email" class="form-input @error('email') form-input-error @enderror" name="email"
-                value="{{old('email')}}">
+            <input type="email"
+                class="form-input @error('email') @if ($message != 'This password reset token is invalid.') form-input-error @endif @enderror"
+                name="email" value="{{old('email')}}" required>
 
             @error('email')
+            @if ($message != 'This password reset token is invalid.')
             <div class="form-icon-error">
                 <i class="far fa-times-circle"></i>
             </div>
+            @endif
             @enderror
 
         </div>
 
         @error('email')
+        @if ($message != 'This password reset token is invalid.')
         <div class="form-message-error">
             {{$message}}
         </div>
+        @endif
         @enderror
 
         <div class="form-group">
@@ -73,7 +86,8 @@
                 Password
             </label>
 
-            <input type="password" class="form-input @error('password') form-input-error @enderror" name="password">
+            <input type="password" class="form-input @error('password') form-input-error @enderror" name="password"
+                required>
 
             <div class="show-pass">
                 <i class="far fa-eye-slash"></i>
@@ -100,7 +114,7 @@
                 Re-Password
             </label>
 
-            <input type="password" class="form-input" name="password_confirmation">
+            <input type="password" class="form-input" name="password_confirmation" required>
 
             <div class="show-pass">
                 <i class="far fa-eye-slash"></i>

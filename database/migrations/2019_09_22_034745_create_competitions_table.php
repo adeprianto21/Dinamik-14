@@ -15,6 +15,9 @@ class CreateCompetitionsTable extends Migration
     {
         Schema::create('competitions', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('nama_competition');
+            $table->string('singkatan');
+            $table->integer('jumlah_peserta');
             $table->timestamps();
         });
     }
@@ -26,6 +29,8 @@ class CreateCompetitionsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('competitions');
+        Schema::enableForeignKeyConstraints();
     }
 }

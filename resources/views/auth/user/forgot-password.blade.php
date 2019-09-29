@@ -55,7 +55,7 @@
             </label>
 
             <input type="email" class="form-input @error('email') form-input-error @enderror" name="email"
-                value="{{old('email')}}">
+                value="{{old('email')}}" required>
 
             @error('email')
             <div class="form-icon-error">
@@ -73,6 +73,11 @@
 
         <button type="submit" class="button-form" style="margin-top: 40px; margin-left: auto">Send Link</button>
     </form>
+
+    <div class="link">
+        <span class="link-span">Already remember the password? <a href="{{route('login')}}" class="link-href">Login
+                Here</a></span>
+    </div>
 </div>
 
 @endsection
