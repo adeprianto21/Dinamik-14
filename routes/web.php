@@ -16,9 +16,16 @@
 // Admin Authentication Routes...
 
 Route::prefix('admin')->group(function () {
-    Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('admin/login');
-    Route::post('/login', 'AdminAuth\LoginController@login')->name('admin/login');
-    Route::post('/logout', 'AdminAuth\LoginController@logout')->name('admin/logout');
+    Route::get('/login', 'AdminAuth\LoginController@showLoginForm')->name('admin.login');
+    Route::post('/login', 'AdminAuth\LoginController@login')->name('admin.login');
+    Route::post('/logout', 'AdminAuth\LoginController@logout')->name('admin.logout');
+    Route::get('/teams', 'AdminsController@showTeams')->name('admin.teams');
+    Route::get('/teams/{id}', 'AdminsController@showTeamDetail')->name('admin.team.detail');
+    Route::get('/karya', 'AdminsController@showTeamKarya')->name('admin.karya');
+    Route::get('/karya/{id}', 'AdminsController@showTeamKaryaDetail')->name('admin.karya.detail');
+    Route::get('/payments', 'AdminsController@showPayments')->name('admin.payments');
+    Route::get('/payment/{id}', 'AdminsController@showPaymentDetail')->name('admin.payment.detail');
+    Route::get('/payment/{id}/{status}', 'AdminsController@updatePaymentStatus')->name('admin.update.payment');
 
     Route::get('/', 'AdminsController@index')->name('admin');
 });
@@ -44,9 +51,23 @@ Route::get('password/reset', 'UserAuth\ForgotPasswordController@showLinkRequestF
 Route::prefix('dashboard')->group(function () {
     Route::get('/', 'UsersController@index')->name('dashboard');
     Route::get('/profile', 'UsersController@profile')->name('dashboard.profile');
-    Route::post('/profile', 'UsersController@updateTeam')->name('dashboard.profile.update.team');
+    Route::get('/karya', 'UsersController@karya')->name('dashboard.karya');
+    Route::get('/karya/edit', 'UsersController@editKarya')->name('dashboard.karya.edit');
+    Route::post('/karya/insert', 'UsersController@insertKarya')->name('dashboard.insert.karya');
+    Route::post('/karya/update', 'UsersController@updateKarya')->name('dashboard.update.karya');
+    Route::get('/payment', 'UsersController@payment')->name('dashboard.payment');
+    Route::get('/payment/edit', 'UsersController@editPayment')->name('dashboard.payment.edit');
+    Route::post('/payment/insert', 'UsersController@insertPayment')->name('dashboard.insert.payment');
+    Route::post('/payment/update', 'UsersController@updatePayment')->name('dashboard.update.payment');
+    Route::post('/profile/team', 'UsersController@updateTeam')->name('dashboard.profile.update.team');
+    Route::post('/profile/participant', 'UsersController@insertParticipant')->name('dashboard.profile.insert.participant');
 });
 
 // ===================================== Guest Section ============================================
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/pca', 'HomeController@pca')->name('pca');
+Route::get('/netcomp', 'HomeController@netcomp')->name('netcomp');
+Route::get('/cspc', 'HomeController@cspc')->name('cspc');
+Route::get('/webdev', 'HomeController@webdev')->name('webdev');
+Route::get('/animation', 'HomeController@animation')->name('animation');

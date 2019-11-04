@@ -10,4 +10,29 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function pca()
+    {
+        return view('pca');
+    }
+
+    public function netcomp()
+    {
+        return view('netcomp');
+    }
+
+    public function cspc()
+    {
+        return view('cspc');
+    }
+
+    public function webdev()
+    {
+        return view('webdev');
+    }
+
+    public function animation()
+    {
+        return view('animation');
+    }
 }

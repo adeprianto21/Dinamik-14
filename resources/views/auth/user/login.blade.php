@@ -102,35 +102,41 @@
 
         </div>
 
-        @error('password')
+        <?php if ($errors->has('password')) : ?>
+        <div class="form-message-error">
+            <?= $message; ?>
+        </div>
+        <?php endif; ?>
+
+        {{-- @error('password')
         <div class="form-message-error">
             {{$message}}
-        </div>
-        @enderror
+</div>
+@enderror --}}
 
-        <div class="remember-login-section">
-            <div class="remember">
-                <div class="check-column" id="check-column">
-                    <div class="check-icon">
-                        <i class="fas fa-check"></i>
-                    </div>
-                    <span class="remember-text">Remeber me ?</span>
-                </div>
-                <input type="hidden" name="remember" id="remember-me" value="false">
+<div class="remember-login-section">
+    <div class="remember">
+        <div class="check-column" id="check-column">
+            <div class="check-icon">
+                <i class="fas fa-check"></i>
             </div>
-            <div class="login">
-                <button type="submit" class="button-form">Login</button>
-            </div>
+            <span class="remember-text">Remeber me ?</span>
         </div>
-
-    </form>
-
-    <div class="link">
-        <span class="link-span">Don't have any account yet? <a href="{{route('register')}}" class="link-href">Register
-                Here</a></span>
-        <span class="link-span">Forgot your password? <a href="{{route('password.request')}}" class="link-href">Click
-                Here</a></span>
+        <input type="hidden" name="remember" id="remember-me" value="false">
     </div>
+    <div class="login">
+        <button type="submit" class="button-form">Login</button>
+    </div>
+</div>
+
+</form>
+
+<div class="link">
+    <span class="link-span">Don't have any account yet? <a href="{{route('register')}}" class="link-href">Register
+            Here</a></span>
+    <span class="link-span">Forgot your password? <a href="{{route('password.request')}}" class="link-href">Click
+            Here</a></span>
+</div>
 </div>
 
 @endsection

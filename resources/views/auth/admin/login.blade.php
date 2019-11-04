@@ -1,7 +1,6 @@
 @extends('templates/main')
 
-@section('judul', 'Registration | Dinamik')
-
+@section('judul', 'Login | Admin | Dinamik')
 
 @section('content')
 
@@ -34,7 +33,7 @@
 
 <div class="form-container">
 
-    <form method="POST" action="{{route('admin/login')}}">
+    <form method="POST" action="{{route('admin.login')}}">
 
         @csrf
 
@@ -89,7 +88,7 @@
         </div>
         @enderror
 
-        <button type="submit" class="button-form">login</button>
+        <button type="submit" class="button-form admin-login-form">login</button>
     </form>
 </div>
 

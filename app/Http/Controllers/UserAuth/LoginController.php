@@ -27,7 +27,8 @@ class LoginController extends Controller
      * @var string
      */
     protected $redirectTo = '/dashboard';
-    protected $login_message;
+
+    protected $remember_me;
 
     /**
      * Create a new controller instance.
@@ -56,9 +57,25 @@ class LoginController extends Controller
 
     protected function attemptLogin(Request $request)
     {
+
+        if ($request->input('remember') == 'true') {
+            $this->remember_me = true;
+        } else {
+            $this->remember_me = false;
+        }
+
         return $this->guard()->attempt(
             $this->credentials($request),
-            $request->filled('remember')
+            $this->remember_me
         );
+    }
+
+    public function logout(Request $request)
+    {
+        $this->guard()->logout();
+
+        $request->session()->invalidate();
+
+        return $this->loggedOut($request) ?: redirect()->route('login');
     }
 }

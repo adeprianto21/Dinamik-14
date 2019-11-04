@@ -18,6 +18,7 @@ class CreateCompetitionsTable extends Migration
             $table->string('nama_competition');
             $table->string('singkatan');
             $table->integer('jumlah_peserta');
+            $table->integer('biaya_pendaftaran');
             $table->timestamps();
         });
     }

@@ -6,10 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Competition extends Model
 {
-    protected $fillable = ['nama_competition', 'jumlah_peserta'];
+    protected $fillable = ['nama_competition', 'jumlah_peserta', 'biaya_pendaftaran'];
 
     public function team()
     {
-        return $this->hasOne('App\Team');
+        return $this->hasMany('App\Team');
     }
 }

@@ -25,11 +25,11 @@
                             <i class="fas fa-chevron-down"></i>
                         </span>
                         <div class="dinamik-dropdown-menu">
-                            <a href="#">PCA</a>
-                            <a href="#">Net Comp</a>
-                            <a href="#">CSPC</a>
-                            <a href="#">Web Dev</a>
-                            <a href="#">Animation</a>
+                            <a href="{{route('pca')}}">PCA</a>
+                            <a href="{{route('netcomp')}}">Net Comp</a>
+                            <a href="{{route('cspc')}}">CSPC</a>
+                            <a href="{{route('webdev')}}">Web Dev</a>
+                            <a href="{{route('animation')}}">Animation</a>
                         </div>
                     </li>
                     <li><a href="#">Acara</a></li>
@@ -64,7 +64,7 @@
                     @auth('admin')
                     <li class="dinamik-dropdown user" tabindex="-1">
                         <span>
-                            {{Auth::guard('admin')->user()->username}}
+                            {{Auth::guard('admin')->user()->name}}
                             <i class="fas fa-chevron-down"></i>
                         </span>
                         <div class="dinamik-dropdown-menu">

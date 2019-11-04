@@ -11,11 +11,25 @@
 @include('templates.dashboard-header')
 
 <main class="dashboard">
+
     @if(session()->has('status'))
     <div class="alert alert-success">
         {{ session()->get('status') }}
     </div>
     @endif
+
+    @if(session()->has('success'))
+    <div class="alert alert-success">
+        {{ session()->get('success') }}
+    </div>
+    @endif
+
+    @if(session()->has('error'))
+    <div class="alert alert-danger">
+        {{ session()->get('error') }}
+    </div>
+    @endif
+
     <section class="dashboard-section">
         <h1 class="text-center" style="font-family: 'Mont Bold'; letter-spacing: 3px;">SELAMAT DATANG</h1>
         <h3 class="text-center mt-3" style="font-family: 'Mont Semi Bold'; color: #555;">Di Dashboard Dinamik 14</h3>

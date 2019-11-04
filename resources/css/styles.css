@@ -35,21 +35,22 @@
 
 /* ===================================== RESOLUSI > 900px (LAYAR LAPTOP) ======================================= */
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     background-color: black;
     font-family: "Mont Regular";
+    color: white;
 }
 
-input[type=number]::-webkit-inner-spin-button, 
-input[type=number]::-webkit-outer-spin-button { 
-  -webkit-appearance: none; 
-  margin: 0; 
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* div {
@@ -60,12 +61,20 @@ input[type=number]::-webkit-outer-spin-button {
     font-family: "Mont Bold Italic";
 }
 
+.black {
+    font-family: "Mont Black";
+}
+
 .text-white {
     color: white;
 }
 
 .rotate180 {
     transform: rotate(180deg);
+}
+
+.bold {
+    font-family: "Mont Bold";
 }
 
 .alert-success {
@@ -273,7 +282,9 @@ section#landing-page-hero {
     background-color: #d600ff;
 }
 
-.bar1, .bar2, .bar3 {
+.bar1,
+.bar2,
+.bar3 {
     width: 35px;
     height: 5px;
     background-color: white;
@@ -310,7 +321,7 @@ section#landing-page-hero {
     z-index: 999;
     top: 0;
     left: 0;
-    background-color: rgba(0,0,0, 1);
+    background-color: rgba(0, 0, 0, 1);
     transition: all ease 0.5s;
     text-align: center;
     display: flex;
@@ -351,7 +362,7 @@ section#landing-page-hero {
     margin-bottom: 0px;
     font-size: 22px;
     color: white;
-}   
+}
 
 .overlay-navbar-item ul li.dinamik-dropdown span {
     position: relative;
@@ -409,7 +420,7 @@ section#landing-page-hero {
     -webkit-text-stroke-color: white;
     display: block;
     font-size: 2.5em;
-    color: rgba(0,0,0,0);
+    color: rgba(0, 0, 0, 0);
 }
 
 .header-section .header-animation span:nth-child(1) {
@@ -430,6 +441,10 @@ section#landing-page-hero {
 
 .header-section .header-animation span:nth-child(5) {
     animation: header-animate 5s ease 4s infinite;
+}
+
+main {
+    min-height: 55vh;
 }
 
 section {
@@ -459,12 +474,12 @@ section {
     height: 200px;
 }
 
-.competition-container  {
+.competition-container {
     height: 200px;
     position: relative;
 }
 
-.competition-container:hover  {
+.competition-container:hover {
     cursor: pointer;
 }
 
@@ -483,30 +498,174 @@ section {
 
 .competition-button-group {
     height: auto;
-    width: 200px;
+    width: 130px;
     margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    /* border: 1px solid red; */
 }
 
-.competition-prev button, .competition-next button {
+.competition-prev button,
+.competition-next button {
     outline: none;
     border: none;
     background-color: transparent;
-    font-size: 65px;
+    font-size: 40px;
     color: white;
     transition: all 0.3s ease;
 }
 
-.competition-prev button:hover, .competition-next button:hover {
+.competition-prev button:hover,
+.competition-next button:hover {
     cursor: pointer;
     color: #777;
 }
 
-.competition-prev button:active, .competition-next button:active {
+.competition-prev button:active,
+.competition-next button:active {
     transform: scale(0.85);
     color: #777;
+}
+
+/* #timeline-section {
+
+} */
+
+.time-line-container {
+    text-align: center;
+    color: white;
+    margin: 60px 0px;
+}
+
+.time-line:before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    width: 5px;
+    height: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.time-line {
+    position: relative;
+    display: inline-block;
+}
+
+.time-line ul li {
+    position: relative;
+    list-style: none;
+    margin: 50px 0px;
+    padding-left: 30px;
+    text-align: left;
+    width: 300px;
+}
+
+.time-line ul li:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -7%;
+    width: 25px;
+    height: 25px;
+    background-color: #d600ff;
+    border-radius: 50%;
+    transform: translateY(-10px);
+    border: 5px solid black;
+}
+
+.time-line ul li .timeline-item {
+    padding: 20px 20px;
+    border-radius: 10px;
+    background-color: #333;
+}
+
+.time-line ul li .timeline-item .time {
+    display: block;
+    font-size: 14px;
+}
+
+.time-line ul li .timeline-item .agenda {
+    display: block;
+    font-size: 28px;
+    font-family: "Mont Bold";
+}
+
+footer {
+    display: block;
+    color: white;
+    width: 100%;
+    padding: 20px 0px;
+}
+
+.footer-brand {
+    width: 250px;
+}
+
+.footer-social-media {
+    padding: 20px 20px;
+}
+
+.footer-social-media a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    transition: 0.3s all ease;
+}
+
+.footer-social-media a:hover {
+    color: #d600ff;
+    margin-left: 10px;
+}
+
+.footer-social-media a i {
+    display: inline-block;
+    font-size: 25px;
+}
+
+.footer-social-media a .social-media-name {
+    display: inline-block;
+    font-size: 14px;
+    margin-left: 10px;
+    margin-top: 3px;
+}
+
+.footer-header-title {
+    display: block;
+    font-family: "Mont Semi Bold";
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.footer-list-container {
+    display: block;
+}
+
+.footer-list-container li {
+    list-style: none;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.footer-list-container li a {
+    text-decoration: none;
+    color: white;
+    transition: 0.3s all ease;
+}
+
+.footer-list-container li a:hover {
+    color: #d600ff;
+    margin-left: 10px;
+}
+
+.footer-creator {
+    text-align: center;
+    font-size: 12px;
+    padding: 20px 0px;
+    margin-top: 10px;
+    font-family: "Mont Bold";
 }
 
 /*  =========================================== REGISTRATION PAGE =================================== */
@@ -543,11 +702,6 @@ section {
     top: -100px;
     left: 50%;
     transform: translateX(-50%);
-}
-
-form {
-    position: relative;
-    z-index: 999;
 }
 
 .form-group {
@@ -698,6 +852,20 @@ form {
     border: none;
     outline: none;
     border-radius: 5px;
+    transition: 0.3s all ease;
+}
+
+.button-form:hover {
+    background-color: #6d0083;
+}
+
+.button-form:focus {
+    outline: none;
+}
+
+.admin-login-form {
+    margin-top: 30px;
+    margin-left: auto;
 }
 
 .link {
@@ -791,19 +959,19 @@ a.link-href {
     text-decoration: none;
 }
 
-.nav-side-list-item:hover a{
+.nav-side-list-item:hover a {
     color: white;
 }
 
-.nav-side-list-item:hover i{
+.nav-side-list-item:hover i {
     color: white;
 }
 
-.active a{
+.active a {
     color: white;
 }
 
-.active a i{
+.active a i {
     color: white;
 }
 
@@ -814,7 +982,7 @@ a.link-href {
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     z-index: 100;
 }
 
@@ -888,10 +1056,10 @@ a.link-href {
 
 .dashboard {
     margin-left: 250px;
-    padding: 0px 70px;
+    padding: 20px 70px;
     color: white;
     background-color: #111;
-    min-height: 1000vh;
+    min-height: 90vh;
 }
 
 .dashboard-section {
@@ -911,8 +1079,21 @@ a.link-href {
     letter-spacing: 3px;
 }
 
+.dashboard-overflow {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    padding: 10px 10px;
+    margin-bottom: 15px;
+}
+
 table {
     width: 100%;
+}
+
+td.min {
+    width: 1%;
+    white-space: nowrap;
 }
 
 .dashboard-form-row td {
@@ -932,6 +1113,11 @@ table {
     color: white;
     margin-left: 20px;
     width: 100%;
+    transition: 0.5s all ease;
+}
+
+.dashboard-form-text:focus {
+    border: 3px solid #d600ff;
 }
 
 .dashboard-form-text:-webkit-autofill {
@@ -952,13 +1138,20 @@ table {
     outline: none;
     padding: 5px 40px 5px 30px;
     color: white;
-    -moz-appearance:none; /* Firefox */
-    -webkit-appearance:none; /* Safari and Chrome */
-    appearance:none;
+    -moz-appearance: none;
+    /* Firefox */
+    -webkit-appearance: none;
+    /* Safari and Chrome */
+    appearance: none;
+    transition: 0.5s all ease;
 }
 
 .dashboard-form-select:hover {
     cursor: pointer;
+}
+
+.dashboard-form-select:focus {
+    border: 3px solid #d600ff;
 }
 
 .dashboard-form-select option {
@@ -987,18 +1180,124 @@ table {
     transition: 0.3s all ease;
 }
 
-.dashboard-form-button:focus  {
+.dashboard-form-button:focus {
     outline: none;
 }
 
-.dashboard-form-button:hover  {
+.dashboard-form-button:hover {
     background-color: #6d0083;
 }
 
 .dashboard-form-error {
     color: red;
     font-size: 14px;
-    margin-left: 30px;
+    margin-left: 50px;
+}
+
+.if-exist {
+    color: red;
+}
+
+.upload-file {
+    display: block;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+.file-name {
+    display: inline-block;
+    color: #ffee00;
+}
+
+.file-name a {
+    display: inline-block;
+    color: #ffee00;
+    text-decoration: none;
+    transition: 0.3s all ease;
+}
+
+.file-name a:hover {
+    color: #d600ff;
+}
+
+.file-error {
+    display: block;
+    color: red;
+    font-size: 12px;
+}
+
+.format-info {
+    display: block;
+    color: #d600ff;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.upload-button {
+    display: block;
+    margin: auto;
+    padding: 5px 30px;
+    background-color: #d600ff;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    transition: 0.3s all ease;
+
+}
+
+.upload-button:hover {
+    background-color: #6d0083;
+}
+
+.upload-button:focus {
+    outline: none;
+}
+
+.photo-label {
+    display: block;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.user-photo {
+    display: block;
+    margin: auto;
+    width: 150px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.id-card-photo {
+    display: block;
+    margin: auto;
+    width: 320px;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.photo-error {
+    border: 3px solid red;
+}
+
+.submit-participant-button {
+    display: block;
+    margin: auto;
+    padding: 5px 30px;
+    background-color: #d600ff;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    transition: 0.3s all ease;
+    margin-bottom: 15px;
+}
+
+.submit-participant-button:focus {
+    outline: none;
+}
+
+.submit-participant-button:hover {
+    background-color: #6d0083;
 }
 
 .modal-content {
@@ -1020,7 +1319,8 @@ table {
 }
 
 .modal-footer {
-    border-top: 0.5px solid black;;
+    border-top: 0.5px solid black;
+    ;
 }
 
 .close {
@@ -1035,12 +1335,255 @@ table {
     outline: none;
 }
 
+.link-creation {
+    color: white;
+    color: #d600ff;
+    transition: 0.3s all ease;
+}
+
+.link-creation:hover {
+    text-decoration: none;
+    color: #ffee00;
+}
+
+.edit-karya-button {
+    display: inline-block;
+    padding: 5px 30px;
+    background-color: #d600ff;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    transition: 0.3s all ease;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+.edit-karya-button:hover {
+    text-decoration: none;
+    background-color: #6d0083;
+    color: white;
+}
+
+.payment-check-section {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payment-check-section span {
+    margin-right: 10px;
+}
+
+.payment-check-section .success {
+    color: green;
+}
+
+.payment-check-section .warning {
+    color: #ffee00;
+}
+
+.payment-check-section .danger {
+    color: red;
+}
+
+.payment-check-section .payment-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 50%;
+}
+
+.payment-check-section .payment-icon i {
+    position: absolute;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+}
+
+.payment-check-section .payment-icon .success {
+    color: green;
+    font-size: 20px;
+    top: -30%;
+    right: -30%;
+}
+
+.payment-check-section .payment-icon .danger {
+    color: red;
+    top: -20%;
+    right: -3%;
+    font-size: 24px;
+}
+
+.bank-name {
+    display: block;
+    font-family: "Mont Bold";
+    font-size: 18px;
+    margin-top: 20px;
+    margin-bottom: -5px;
+}
+
+.bank-number {
+    display: block;
+    font-family: "Mont Bold";
+    font-size: 24px;
+}
+
+.bank-owner {
+    display: block;
+    font-family: "Mont Bold Italic";
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+.title-payment {
+    display: block;
+    font-family: "Mont Bold";
+    text-align: center;
+    margin: 20px 0px;
+    font-size: 22px;
+}
+
+.upload-bukti-pembayaran {
+    display: block;
+    text-align: center;
+}
+
+.photo-label {
+    font-size: 20px;
+}
+
+.upload-bukti-pembayaran .payment-photo {
+    display: inline-block;
+    margin: auto;
+    border-radius: 10px;
+    max-width: 90%;
+}
+
+.nama-pengirim {
+    display: inline-block;
+}
+
+.input-pengirim {
+    display: inline-block;
+}
+
+.edit-payment-button {
+    display: inline-block;
+    padding: 5px 30px;
+    background-color: #d600ff;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    transition: 0.3s all ease;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.edit-payment-button:hover {
+    text-decoration: none;
+    background-color: #6d0083;
+    color: white;
+}
+
+/* ============================================== Admin Dashboard Page ===================================== */
+
+.table-admin-dashboard {
+    text-align: center;
+}
+
+.table-admin-dashboard tr th,
+.table-admin-dashboard tr td {
+    padding: 10px 20px;
+    border: 1.5px solid white;
+}
+
+.table-admin-dashboard tr.row-header {
+    background-color: #d600ff;
+    font-family: "Mont Bold";
+}
+
+.table-admin-dashboard tr td a {
+    text-decoration: none;
+    color: #ffee00;
+    transition: 0.3s all ease;
+}
+
+.table-admin-dashboard tr td a:hover {
+    color: #d600ff;
+}
+
+
+/* ============================================== Competition Page ===================================== */
+
+.main-competition {
+    text-align: center;
+    color: white;
+}
+
+.header-competition {
+    display: block;
+    font-size: 34px;
+    font-family: "Mont Bold";
+}
+
+.header-competition-subtitle {
+    display: block;
+    font-size: 16px;
+    color: #555;
+    font-family: "Mont Bold Italic";
+}
+
+.deskripsi-competition {
+    margin-top: 50px;
+    padding: 20px 100px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.guide-book-button {
+    display: inline-block;
+    padding: 5px 30px;
+    background-color: #d600ff;
+    border-radius: 30px;
+    border: none;
+    color: white;
+    transition: 0.3s all ease;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.guide-book-button:hover {
+    text-decoration: none;
+    color: white;
+    background-color: #6d0083;
+}
+
+.contact-person {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.contact-person-name {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+    font-family: "Mont Bold";
+}
+
+.contact-person-number {
+    margin-left: 5px;
+}
+
 /* ============================================ ANIMATION =========================================== */
 
 @keyframes autofill {
     to {
         color: white;
-        background-color: rgba(0,0,0,0);
+        background-color: rgba(0, 0, 0, 0);
     }
 }
 
@@ -1055,6 +1598,7 @@ table {
     0% {
         transform: translateY(0%);
     }
+
     100% {
         transform: translateY(-50%);
     }
@@ -1064,6 +1608,7 @@ table {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
@@ -1074,10 +1619,12 @@ table {
         color: black;
         -webkit-text-stroke-color: white;
     }
+
     20% {
-        color: 	#d600ff;
-        -webkit-text-stroke-color: 	#d600ff;
+        color: #d600ff;
+        -webkit-text-stroke-color: #d600ff;
     }
+
     40% {
         color: black;
         -webkit-text-stroke-color: white;
@@ -1109,7 +1656,7 @@ table {
     .layer-3 .dinamik {
         width: 200px;
     }
-    
+
     .layer-4 {
         top: 130px;
     }
@@ -1123,7 +1670,7 @@ table {
         top: 90px;
         left: 70px;
     }
-    
+
     .nov-2019 {
         font-size: 0.9em;
     }
@@ -1135,12 +1682,12 @@ table {
     }
 
     .nav {
-        padding: 10px 20px;
+        padding: 10px 30px;
         display: flex;
         justify-content: space-between;
         align-items: center;
     }
-    
+
     .nav .brand-dinamik img {
         width: 130px;
     }
@@ -1148,7 +1695,7 @@ table {
     #nav-dinamik-item-container {
         display: none;
     }
-    
+
     .navbar-toggle {
         display: inline-block;
         cursor: pointer;
@@ -1163,8 +1710,8 @@ table {
     }
 
     #header-home {
-        transform: translateY(-110px);
-        top: 110px;
+        transform: translateY(-125px);
+        top: 125px;
     }
 
     #abstraction-section {
@@ -1179,8 +1726,64 @@ table {
         font-size: 1em;
     }
 
+    .dinamik-abstract {
+        margin: 60px 60px 0px 60px;
+        font-size: 1em;
+    }
+
+    footer {
+        display: block;
+        color: white;
+        width: 100%;
+        padding: 20px 0px;
+    }
+
+    .footer-image {
+        text-align: center;
+    }
+
+    .footer-brand {
+        width: 200px;
+    }
+
+    .footer-social-media {
+        padding-top: 10px;
+        padding-bottom: 20px;
+    }
+
+    .footer-social-media a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+    }
+
+    .footer-social-media a:hover {
+        margin-left: 0px;
+    }
+
+    .footer-social-media a i {
+        font-size: 30px;
+    }
+
+    .footer-social-media a .social-media-name {
+        font-size: 16px;
+    }
+
+    .footer-header-title {
+        text-align: center;
+    }
+
+    .footer-list-container {
+        text-align: center;
+    }
+
+    .footer-list-container li a:hover {
+        margin-left: 0px;
+    }
+
     /* ================================================= FORM SECTION ============================================ */
-    
+
     .form-container {
         top: 0px;
         width: 500px;
@@ -1194,8 +1797,6 @@ table {
     }
 
     form {
-        position: relative;
-        z-index: 999;
         font-size: 14px;
     }
 
@@ -1206,37 +1807,37 @@ table {
     .form-icon-error {
         left: -20px;
     }
-    
+
     .form-message-error {
         font-size: 14px;
     }
-    
+
     .remember .check-column {
         width: 25px;
         height: 25px;
     }
-    
+
     .remember .check-column .remember-text {
         font-size: 14px;
         right: -110px;
         top: 1px;
     }
-    
+
     .button-form {
         padding: 5px 25px;
     }
-    
+
     .link {
         font-size: 12px;
         margin-bottom: 30px;
     }
-    
+
     span.link-span {
         display: block;
         text-align: center;
         margin-top: 15px;
     }
-    
+
     a.link-href {
         text-decoration: none;
         color: #ffee00;
@@ -1254,7 +1855,7 @@ table {
         overflow: auto;
         transition: 0.5s all ease;
     }
-    
+
     .nav-side-bar .nav-side-brand {
         margin-top: 25px;
     }
@@ -1264,23 +1865,23 @@ table {
         right: 30px;
         font-size: 20px;
     }
-    
+
     .nav-side-bar .nav-side-brand a img {
         width: 45px;
         transition: 0.5s all ease;
     }
-    
+
     .username-bar {
         display: none;
         margin-top: 30px;
         padding: 5px 60px;
     }
-    
+
     .username-bar span {
         color: white;
         font-size: 14px;
     }
-    
+
     .nav-side-list-container {
         margin-top: 10px;
     }
@@ -1296,11 +1897,11 @@ table {
         width: 100%;
         height: 100%;
     }
-    
+
     .nav-side-list-item a i {
         width: 30px;
     }
-    
+
     .dashboard-header {
         position: fixed;
         margin-left: 13%;
@@ -1309,7 +1910,7 @@ table {
         box-shadow: 0px 0px 10px 0px rgb(94, 92, 92);
         z-index: 99;
     }
-    
+
     .dashboard-header .header-container {
         padding: 20px 35px;
     }
@@ -1321,23 +1922,23 @@ table {
     .dashboard-header .header-container .show-dashboard:hover {
         cursor: pointer;
     }
-    
+
     .dashboard-header .header-container .team-info-section .team-name {
         font-size: 20px;
     }
-    
+
     .dashboard-header .header-container .team-info-section .team-competition {
         font-size: 11px;
     }
-    
+
     .back-home-section {
         padding: 15px 10px;
     }
-    
+
     .message-back {
         font-size: 10px;
     }
-    
+
     .dashboard {
         margin-top: 90px;
         margin-left: 13%;
@@ -1349,50 +1950,79 @@ table {
         background-color: black;
         border-radius: 10px;
         margin-bottom: 30px;
-        overflow: auto;
     }
-    
+
     .dashboard-section-header {
         margin-bottom: 20px;
     }
 
-    table {
-        width: 100%;
+    .dashboard-overflow {
+        padding: 10px 0px;
     }
-    
+
+    table {
+        max-width: 1000px;
+    }
+
     .dashboard-form-row td {
         padding: 10px 15px;
     }
-    
+
     .dashboard-form-text {
         margin-left: 10px;
         margin-right: 20px;
         width: auto;
     }
-    
+
     .dashboard-form-text:-webkit-autofill {
         animation-name: autofill-dashboard;
         animation-fill-mode: both;
     }
-    
+
     .select-container {
         margin-left: 10px;
     }
-    
+
     .dashboard-form-select {
         width: auto;
     }
-    
+
     .dashboard-form-button {
         margin-top: 10px;
         margin-bottom: 5px;
         margin-right: 10px;
     }
-    
+
     .dashboard-form-error {
         color: red;
         font-size: 14px;
-        margin-left: 30px;
+        margin-left: 40px;
+    }
+
+    .user-photo {
+        display: block;
+        margin: auto;
+        width: 180px;
+        height: auto;
+    }
+
+    .id-card-photo {
+        display: block;
+        margin: auto;
+        width: 320px;
+        height: auto;
+    }
+
+    .file-name a {
+        font-size: 12px;
+    }
+
+    .submit-participant-button {
+        margin-bottom: 0px;
+    }
+
+    .edit-payment-button {
+        margin-top: 10px;
     }
 
 }
@@ -1414,7 +2044,7 @@ table {
     .layer-3 {
         top: 135px;
     }
-    
+
     .layer-3 .dinamik {
         display: block;
         width: 220px;
@@ -1425,13 +2055,13 @@ table {
         top: 235px;
         display: inline-block;
     }
-    
+
     .layer-4 .tv {
         display: block;
         width: 230px;
         height: 280px;
     }
-    
+
     .layer-4 .rotate-scroll {
         position: absolute;
         width: 80px;
@@ -1441,8 +2071,8 @@ table {
     }
 
     #header-home {
-        transform: translateY(-135px);
-        top: 135px;
+        transform: translateY(-125px);
+        top: 125px;
     }
 
     .nav {
@@ -1451,7 +2081,7 @@ table {
         justify-content: space-between;
         align-items: center;
     }
-    
+
     .nav .brand-dinamik img {
         width: 130px;
     }
@@ -1460,7 +2090,9 @@ table {
         display: none;
     }
 
-    .bar1, .bar2, .bar3 {
+    .bar1,
+    .bar2,
+    .bar3 {
         width: 35px;
         height: 4px;
         background-color: white;
@@ -1480,17 +2112,34 @@ table {
     .header-section {
         top: 20px;
     }
-    
+
     .header-section .header-stroke {
         line-height: 25px;
     }
-    
+
     .header-section .header-stroke span {
         font-size: 1.8em;
     }
 
-/* ================================================= FORM SECTION ============================================ */
-    
+    .time-line ul li {
+        width: 220px;
+    }
+
+    .time-line ul li:before {
+        left: -9.1%;
+    }
+
+
+    .time-line ul li .timeline-item .time {
+        font-size: 10px;
+    }
+
+    .time-line ul li .timeline-item .agenda {
+        font-size: 22px;
+    }
+
+    /* ================================================= FORM SECTION ============================================ */
+
     .form-container {
         top: 30px;
         width: 300px;
@@ -1504,8 +2153,6 @@ table {
     }
 
     form {
-        position: relative;
-        z-index: 999;
         font-size: 12px;
     }
 
@@ -1516,37 +2163,37 @@ table {
     .form-icon-error {
         left: -20px;
     }
-    
+
     .form-message-error {
         font-size: 11px;
     }
-    
+
     .remember .check-column {
         width: 20px;
         height: 20px;
     }
-    
+
     .remember .check-column .remember-text {
         font-size: 12px;
         right: -95px;
         top: 1px;
     }
-    
+
     .button-form {
         padding: 5px 25px;
     }
-    
+
     .link {
         font-size: 11px;
         margin-bottom: 30px;
     }
-    
+
     span.link-span {
         display: block;
         text-align: center;
         margin-top: 20px;
     }
-    
+
     a.link-href {
         text-decoration: none;
         color: #ffee00;
@@ -1562,11 +2209,11 @@ table {
         width: 0px;
         overflow: auto;
     }
-    
+
     .nav-side-bar .nav-side-brand {
         margin-top: 30px;
     }
-    
+
     .nav-side-bar .nav-side-brand a img {
         width: 150px;
     }
@@ -1576,18 +2223,18 @@ table {
         right: 20px;
         font-size: 20px;
     }
-    
+
     .username-bar {
         display: inline-block;
         margin-top: 30px;
         padding: 5px 60px;
     }
-    
+
     .username-bar span {
         color: white;
         font-size: 14px;
     }
-    
+
     .nav-side-list-container {
         margin-top: 10px;
     }
@@ -1597,7 +2244,7 @@ table {
         text-align: left;
         transition: 0.5s all ease;
     }
-    
+
     .nav-side-list-item a i {
         width: 35px;
     }
@@ -1605,14 +2252,14 @@ table {
     .nav-side-list-item a span {
         display: none;
     }
-    
+
     .dashboard-header {
         position: fixed;
         margin-left: 0px;
         top: 0;
         width: 100%;
     }
-    
+
     .dashboard-header .header-container {
         padding: 20px 35px;
     }
@@ -1625,55 +2272,124 @@ table {
         margin-left: auto;
         text-align: right;
     }
-    
+
     .dashboard-header .header-container .team-info-section .team-name {
         font-size: 18px;
     }
-    
+
     .dashboard-header .header-container .team-info-section .team-competition {
         font-size: 11px;
     }
-    
+
     .back-home-section {
         display: none;
     }
-    
+
     .dashboard {
         margin-top: 80px;
         margin-left: 0px;
         padding: 30px 20px;
     }
-    
+
     .dashboard-section {
         padding: 20px 30px;
         background-color: black;
         border-radius: 10px;
         margin-bottom: 30px;
-        overflow: auto;
+    }
+
+    .dashboard-section-header {
+        font-size: 13px;
+    }
+
+    .dashboard-form-label {
+        font-size: 13px;
     }
 
     .dashboard-form-text {
         padding: 5px 20px;
         color: white;
         margin-left: 0px;
+        font-size: 13px;
     }
-    
+
     .select-container {
         display: inline-block;
         position: relative;
         margin-left: 0px;
     }
-    
+
     .dashboard-form-select {
         width: auto;
     }
 
     .dashboard-form-error {
+        margin-left: 30px;
         font-size: 12px;
     }
 
     .modal {
         font-size: 12px;
+    }
+
+    .user-photo {
+        display: block;
+        margin: auto;
+        width: 120px;
+    }
+
+    .id-card-photo {
+        display: block;
+        margin: auto;
+        width: 220px;
+    }
+
+    .file-name {
+        font-size: 12px;
+    }
+
+    .payment-check-section {
+        font-size: 13px;
+    }
+
+    .payment-check-section span {
+        margin-right: 7px;
+    }
+
+    .payment-paragraph {
+        font-size: 12px;
+    }
+
+    .edit-payment-button {
+        font-size: 12px;
+    }
+
+    .btn-dashboard {
+        display: block;
+        margin-top: 5px;
+        width: 100%;
+    }
+
+    /* ============================================== Competition Page ===================================== */
+
+    .header-competition {
+        display: block;
+        font-size: 30px;
+        font-family: "Mont Bold";
+    }
+
+    .header-competition-subtitle {
+        display: block;
+        font-size: 14px;
+        color: #555;
+        font-family: "Mont Bold Italic";
+    }
+
+    .deskripsi-competition {
+        margin-top: 50px;
+        padding: 20px 50px;
+        font-size: 16px;
+        text-align: center;
     }
 
 }

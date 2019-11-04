@@ -176,8 +176,64 @@ $(document).ready(function () {
         }
     });
 
-    $('#modal-submit').on('click', function () {
+    if ($("select#kategori_lomba").val() == '') {
+        $("tr#jumlah_anggota").css('display', 'none');
+        if ($("tr#error_jumlah_anggota").length) {
+            $("tr#error_jumlah_anggota").css('display', 'none');
+        }
+    }
+
+    $("select#kategori_lomba").change(function () {
+        if ($("select#kategori_lomba").val() == 4 || $("select#kategori_lomba").val() == 5) {
+            $("tr#jumlah_anggota").css('display', 'table-row');
+            $("select#select_jumlah_anggota").val('');
+            if ($("tr#error_jumlah_anggota").length) {
+                $("tr#error_jumlah_anggota").css('display', 'table-row');
+            }
+        } else {
+            $("tr#jumlah_anggota").css('display', 'none');
+            $("select#select_jumlah_anggota").val(1);
+            if ($("tr#error_jumlah_anggota").length) {
+                $("tr#error_jumlah_anggota").css('display', 'none');
+            }
+        }
+    });
+
+    $('#modal-submit-team').on('click', function () {
         $('#data-team-form').submit();
     });
 
+    $('#modal-submit-participant').on('click', function () {
+        $('#data-participant-form').submit();
+    });
+
+    $(".upload-button").each(function () {
+        $(this).on('click', function (event) {
+
+            event.preventDefault();
+
+            var input = $(this).siblings("input");
+
+            input.click();
+
+            input.change(function () {
+
+                if (input[0].files && input[0].files[0]) {
+                    var reader = new FileReader();
+
+                    reader.addEventListener("load", function () {
+                        input.parent().siblings("img").attr("src", reader.result);
+                    });
+
+                    reader.readAsDataURL(input[0].files[0]);
+                }
+
+                if (input.val()) {
+                    input.siblings("span.file-name").text(input.val().match(/[\/\\]([\w\d\s\.\-\(\)]+)$/)[1]);
+                } else {
+                    input.siblings("span.file-name").text("No File Choosen, Yet.");
+                }
+            });
+        });
+    });
 });

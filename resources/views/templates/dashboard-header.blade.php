@@ -24,14 +24,16 @@
                     <span>Profile</span>
                 </a>
             </li>
-            <li class="nav-side-list-item @if(Route::currentRouteName() == 'dashboard.competition') active @endif">
-                <a href="">
+            @if (($team->competition_id != null) && ($team->competition_id == 4 || $team->competition_id == 5))
+            <li class="nav-side-list-item @if(strstr(Route::currentRouteName(), 'dashboard.karya')) active @endif">
+                <a href="{{route('dashboard.karya')}}">
                     <i class="fas fa-file-upload"></i>
                     <span>Submit Karya</span>
                 </a>
             </li>
-            <li class="nav-side-list-item @if(Route::currentRouteName() == 'dashboard.payment') active @endif">
-                <a href="">
+            @endif
+            <li class="nav-side-list-item @if(strstr(Route::currentRouteName(), 'dashboard.payment')) active @endif">
+                <a href="{{route('dashboard.payment')}}">
                     <i class="fas fa-money-bill-wave"></i>
                     <span>Payment</span>
                 </a>

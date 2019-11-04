@@ -5,6 +5,7 @@ namespace App\Http\Controllers\UserAuth;
 use App\User;
 use App\Team;
 use App\Http\Controllers\Controller;
+use App\Payment;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -80,6 +81,12 @@ class RegisterController extends Controller
 
         Team::create([
             'user_id' => User::max('id'),
+        ]);
+
+        Payment::create([
+            'team_id' => Team::max('id'),
+            'status_upload_bukti' => false,
+            'status_pembayaran' => false,
         ]);
 
         return $user;

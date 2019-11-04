@@ -64,11 +64,11 @@
                             <i class="fas fa-chevron-down"></i>
                         </span>
                         <div class="dinamik-dropdown-menu">
-                            <a href="{{route('dashboard')}}">PCA</a>
-                            <a href="#">Net Comp</a>
-                            <a href="#">CSPC</a>
-                            <a href="#">Web Dev</a>
-                            <a href="#">Animation</a>
+                            <a href="{{route('pca')}}">PCA</a>
+                            <a href="{{route('netcomp')}}">Net Comp</a>
+                            <a href="{{route('cspc')}}">CSPC</a>
+                            <a href="{{route('webdev')}}">Web Dev</a>
+                            <a href="{{route('animation')}}">Animation</a>
                         </div>
                     </li>
                     <li><a href="#">Acara</a></li>
@@ -103,7 +103,7 @@
                     @auth('admin')
                     <li class="dinamik-dropdown" tabindex="-1">
                         <span>
-                            {{Auth::guard('admin')->user()->username}}
+                            {{Auth::guard('admin')->user()->name}}
                             <i class="fas fa-chevron-down"></i>
                         </span>
                         <div class="dinamik-dropdown-menu">
@@ -139,11 +139,11 @@
                     <i class="fas fa-chevron-down"></i>
                 </span>
                 <div class="dinamik-dropdown-menu">
-                    <a href="#">PCA</a>
-                    <a href="#">Net Comp</a>
-                    <a href="#">CSPC</a>
-                    <a href="#">Web Dev</a>
-                    <a href="#">Animation</a>
+                    <a href="{{route('pca')}}">PCA</a>
+                    <a href="{{route('netcomp')}}">Net Comp</a>
+                    <a href="{{route('cspc')}}">CSPC</a>
+                    <a href="{{route('webdev')}}">Web Dev</a>
+                    <a href="{{route('animation')}}">Animation</a>
                 </div>
             </li>
             <li><a href="#">Acara</a></li>
@@ -204,35 +204,28 @@
 
         <div class="header-section">
             <div class="header-stroke header-animation">
-                <span>about</span>
-                <span>about</span>
-                <span>about</span>
-                <span>about</span>
-                <span>about</span>
+                <span>About</span>
+                <span>About</span>
+                <span>About</span>
+                <span>About</span>
+                <span>About</span>
             </div>
         </div>
 
         <div class="dinamik-abstract">
             <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est ipsa recusandae id reiciendis placeat
-                enim
-                dolor optio, excepturi, veniam aliquid aliquam tempora reprehenderit illo deleniti ex! Saepe atque
-                et
-                doloribus!''
+                Dies Natalis Ilmu Komputer ke-14 atau Dinamik 14 merupakan perayaan ulang tahun Keluarga Mahasiswa Ilmu
+                Komputer yang ke 14
             </p>
             <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est ipsa recusandae id reiciendis placeat
-                enim
-                dolor optio, excepturi, veniam aliquid aliquam tempora reprehenderit illo deleniti ex! Saepe atque
-                et
-                doloribus!''
+                Dinamik 14 bertujuan untuk menyosialisasikan dan memperkenalkan Departemen Ilmu Komputer Universitas
+                Pendidikan Indonesia kepada segmentasi yang berbeda tergantung kepada rangkaian acara yang ada di
+                Dinamik itu sendiri dan juga mengedukasi tiap-tiap individu yang akan mengikuti rangkaian acara tersebut
+                tentang tema yang sedang diangkat dan berbeda tiap tahunnya.
             </p>
             <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est ipsa recusandae id reiciendis placeat
-                enim
-                dolor optio, excepturi, veniam aliquid aliquam tempora reprehenderit illo deleniti ex! Saepe atque
-                et
-                doloribus!''
+                Dinamik 14 mengangkat tema utama tentang Society 5.0 yang artinya adalah suatu konsep masyarakat yang
+                berpusat pada manusia (human-centered) dan berbasis teknologi (technology based)
             </p>
         </div>
 
@@ -242,50 +235,97 @@
 
         <div class="header-section">
             <div class="header-stroke header-animation">
-                <span>competition</span>
-                <span>competition</span>
-                <span>competition</span>
-                <span>competition</span>
-                <span>competition</span>
+                <span>Competition</span>
+                <span>Competition</span>
+                <span>Competition</span>
+                <span>Competition</span>
+                <span>Competition</span>
             </div>
         </div>
 
         <div class="competition-slide owl-carousel">
-            <div class="competition-container">
-                <img src="{{url('resources/img/Parallax/layer2.png')}}" alt="">
-                <span>Lomba 1</span>
-            </div>
-            <div class="competition-container">
-                <img src="{{url('resources/img/Parallax/layer2.png')}}" alt="">
-                <span>Lomba 2</span>
-            </div>
-            <div class="competition-container">
-                <img src="{{url('resources/img/Parallax/layer2.png')}}" alt="">
-                <span>Lomba 3</span>
-            </div>
-            <div class="competition-container">
-                <img src="{{url('resources/img/Parallax/layer2.png')}}" alt="">
-                <span>Lomba 4</span>
-            </div>
-            <div class="competition-container">
-                <img src="{{url('resources/img/Parallax/layer2.png')}}" alt="">
-                <span>Lomba 5</span>
-            </div>
+            <a href="#">
+                <div class="competition-container">
+                    <img src="{{url('resources/img/Competition/pca.jpg')}}" alt="">
+                    <span>PCA</span>
+                </div>
+            </a>
+            <a href="#">
+                <div class="competition-container">
+                    <img src="{{url('resources/img/Competition/net_comp.jpg')}}" alt="">
+                    <span>Network Competition</span>
+                </div>
+            </a>
+            <a href="#">
+                <div class="competition-container">
+                    <img src="{{url('resources/img/Competition/cspc.jpg')}}" alt="">
+                    <span>CSPC</span>
+                </div>
+            </a>
+            <a href="#">
+                <div class="competition-container">
+                    <img src="{{url('resources/img/Competition/web.jpg')}}" alt="">
+                    <span>Web Development</span>
+                </div>
+            </a>
+            <a href="#">
+                <div class="competition-container">
+                    <img src="{{url('resources/img/Competition/animation.jpg')}}" alt="">
+                    <span>Animmation Contest</span>
+                </div>
+            </a>
         </div>
 
         <div class="competition-button-group">
             <div class="competition-prev">
                 <button id="prev-competition-carousel">
-                    &#60;
+                    <i class="fas fa-chevron-circle-left"></i>
                 </button>
             </div>
             <div class="competition-next">
                 <button id="next-competition-carousel">
-                    &#62;
+                    <i class="fas fa-chevron-circle-right"></i>
                 </button>
             </div>
         </div>
 
+    </section>
+
+    <section class="home-sections" id="timeline-section">
+        <div class="header-section">
+            <div class="header-stroke header-animation">
+                <span>Timeline</span>
+                <span>Timeline</span>
+                <span>Timeline</span>
+                <span>Timeline</span>
+                <span>Timeline</span>
+            </div>
+        </div>
+
+        <div class="time-line-container">
+            <div class="time-line">
+                <ul>
+                    <li>
+                        <div class="timeline-item">
+                            <span class="time">2 Oktober 2019</span>
+                            <span class="agenda">Pembukaan Pendaftaran</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-item">
+                            <span class="time">10 November 2019</span>
+                            <span class="agenda">Penutupan Pendaftaran</span>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-item">
+                            <span class="time">30 November 2019</span>
+                            <span class="agenda">Final</span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </section>
 
 </main>
