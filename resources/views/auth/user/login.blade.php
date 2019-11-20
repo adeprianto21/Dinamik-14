@@ -132,8 +132,8 @@
 </form>
 
 <div class="link">
-    <span class="link-span">Don't have any account yet? <a href="{{route('register')}}" class="link-href">Register
-            Here</a></span>
+    {{-- <span class="link-span">Don't have any account yet? <a href="{{route('register')}}" class="link-href">Register
+    Here</a></span> --}}
     <span class="link-span">Forgot your password? <a href="{{route('password.request')}}" class="link-href">Click
             Here</a></span>
 </div>

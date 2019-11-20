@@ -44,7 +44,11 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        return view('auth.user.register');
+        if (strtotime(date('Y-m-d')) <= strtotime('2019-11-10')) {
+            return view('auth.user.register');
+        } else {
+            return redirect()->back();
+        }
     }
 
     /**

@@ -58,7 +58,7 @@ input[type=number]::-webkit-outer-spin-button {
 } */
 
 .regular-italic {
-    font-family: "Mont Bold Italic";
+    font-family: "Mont Regular Italic";
 }
 
 .black {
@@ -75,6 +75,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .bold {
     font-family: "Mont Bold";
+}
+
+.bold-italic {
+    font-family: "Mont Bold Italic";
 }
 
 .alert-success {
@@ -1077,6 +1081,20 @@ a.link-href {
     text-transform: uppercase;
     font-family: "Mont Bold";
     letter-spacing: 3px;
+}
+
+.dashboard-section-subtitle {
+    display: block;
+    margin-bottom: 15px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-left: 10px;
+}
+
+.dashboard-divider {
+    height: 1px;
+    background-color: white;
+    margin-bottom: 30px;
 }
 
 .dashboard-overflow {

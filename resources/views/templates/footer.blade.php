@@ -16,19 +16,19 @@
                 <span class="footer-header-title">Competition</span>
                 <ul class="footer-list-container">
                     <li>
-                        <a href="#">PC Assembling</a>
+                        <a href="{{route('pca')}}">PC Assembling</a>
                     </li>
                     <li>
-                        <a href="#">Network Competition</a>
+                        <a href="{{route('netcomp')}}">Network Competition</a>
                     </li>
                     <li>
-                        <a href="#">Computer Science Programming Contest</a>
+                        <a href="{{route('cspc')}}">Computer Science Programming Contest</a>
                     </li>
                     <li>
-                        <a href="#">Web Development</a>
+                        <a href="{{route('webdev')}}">Web Development</a>
                     </li>
                     <li>
-                        <a href="#">Animation Contest</a>
+                        <a href="{{route('animation')}}">Animation Contest</a>
                     </li>
                 </ul>
             </div>

@@ -71,6 +71,13 @@
                             value="{{$team->jumlah_anggota}}" disabled>
                     </td>
                 </tr>
+                <tr class="dashboard-form-row" id="jumlah_anggota">
+                    <td class="min"><label for="" class="dashboard-form-label">Email Tim</label></td>
+                    <td>
+                        <input type="text" name="jumlah_anggota" class="dashboard-form-text"
+                            value="{{$team->user->email}}" disabled>
+                    </td>
+                </tr>
             </table>
         </div>
 

@@ -71,54 +71,68 @@
                             <a href="{{route('animation')}}">Animation</a>
                         </div>
                     </li>
-                    <li><a href="#">Acara</a></li>
+                    <li class="dinamik-dropdown" tabindex="-1">
+                        <span>
+                            Acara
+                            <i class="fas fa-chevron-down"></i>
+                        </span>
+                        <div class="dinamik-dropdown-menu">
+                            <a href="{{route('pca')}}">Seminar Nasional</a>
+                            <a href="{{route('pca')}}">Festival IT</a>
+                            <a href="{{route('pca')}}">Festival Music</a>
+                        </div>
+                    </li>
                     <li><a href="#">Info</a></li>
                     <li class="divider">|</li>
 
                     @if ((!Auth::check()) && (!Auth::guard('admin')->check()))
-                    <li><a href="{{route('register')}}">Register</a></li>
-                    <li><a href="{{route('login')}}">Login</a></li>
-                    @endif
+                    @if (strtotime(date('Y-m-d')) <= strtotime('2019-11-10')) <li><a
+                            href="{{route('register')}}">Register</a></li>
+                        @endif
+                        <li><a href="{{route('login')}}">Login</a></li>
+                        @endif
 
-                    @auth('web')
-                    <li class="dinamik-dropdown" tabindex="-1">
-                        <span>
-                            {{Auth::user()->username}}
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                        <div class="dinamik-dropdown-menu">
-                            <a href="{{ route('dashboard') }}">Dashboard</a>
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        @auth('web')
+                        <li class="dinamik-dropdown" tabindex="-1">
+                            <span>
+                                {{Auth::user()->username}}
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                            <div class="dinamik-dropdown-menu">
+                                <a href="{{ route('dashboard') }}">Dashboard</a>
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                                    {{ __('Logout') }}
+                                </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                    @endauth
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endauth
 
-                    @auth('admin')
-                    <li class="dinamik-dropdown" tabindex="-1">
-                        <span>
-                            {{Auth::guard('admin')->user()->name}}
-                            <i class="fas fa-chevron-down"></i>
-                        </span>
-                        <div class="dinamik-dropdown-menu">
-                            <a href="{{ route('dashboard') }}">Dashboard</a>
-                            <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        @auth('admin')
+                        <li class="dinamik-dropdown" tabindex="-1">
+                            <span>
+                                {{Auth::guard('admin')->user()->name}}
+                                <i class="fas fa-chevron-down"></i>
+                            </span>
+                            <div class="dinamik-dropdown-menu">
+                                <a href="{{ route('dashboard') }}">Dashboard</a>
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
+                                    {{ __('Logout') }}
+                                </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
-                    @endauth
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
+                        @endauth
                 </ul>
             </div>
         </div>
@@ -146,54 +160,66 @@
                     <a href="{{route('animation')}}">Animation</a>
                 </div>
             </li>
-            <li><a href="#">Acara</a></li>
+            <li class="dinamik-dropdown" tabindex="-1">
+                <span>
+                    Acara
+                    <i class="fas fa-chevron-down"></i>
+                </span>
+                <div class="dinamik-dropdown-menu">
+                    <a href="{{route('pca')}}">Seminar Nasional</a>
+                    <a href="{{route('pca')}}">Festival IT</a>
+                    <a href="{{route('pca')}}">Festival Music</a>
+                </div>
+            </li>
             <li><a href="#">Info</a></li>
             <li class="divider">|</li>
 
             @if ((!Auth::check()) && (!Auth::guard('admin')->check()))
-            <li><a href="{{route('register')}}">Register</a></li>
-            <li><a href="{{route('login')}}">Login</a></li>
-            @endif
+            @if (strtotime(date('Y-m-d')) <= strtotime('2019-11-10')) <li><a href="{{route('register')}}">Register</a>
+                </li>
+                @endif
+                <li><a href="{{route('login')}}">Login</a></li>
+                @endif
 
-            @auth('web')
-            <li class="dinamik-dropdown user" tabindex="-1">
-                <span>
-                    {{Auth::user()->username}}
-                    <i class="fas fa-chevron-down"></i>
-                </span>
-                <div class="dinamik-dropdown-menu">
-                    <a href="{{ route('dashboard') }}">Dashboard</a>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                @auth('web')
+                <li class="dinamik-dropdown user" tabindex="-1">
+                    <span>
+                        {{Auth::user()->username}}
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                    <div class="dinamik-dropdown-menu">
+                        <a href="{{ route('dashboard') }}">Dashboard</a>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
+                            {{ __('Logout') }}
+                        </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
-            </li>
-            @endauth
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+                @endauth
 
-            @auth('admin')
-            <li class="dinamik-dropdown user" tabindex="-1">
-                <span>
-                    {{Auth::guard('admin')->user()->username}}
-                    <i class="fas fa-chevron-down"></i>
-                </span>
-                <div class="dinamik-dropdown-menu">
-                    <a href="{{ route('dashboard') }}">Dashboard</a>
-                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                @auth('admin')
+                <li class="dinamik-dropdown user" tabindex="-1">
+                    <span>
+                        {{Auth::guard('admin')->user()->username}}
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                    <div class="dinamik-dropdown-menu">
+                        <a href="{{ route('dashboard') }}">Dashboard</a>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </a>
+                            {{ __('Logout') }}
+                        </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                </div>
-            </li>
-            @endauth
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+                @endauth
         </ul>
     </div>
 </div>
@@ -244,31 +270,31 @@
         </div>
 
         <div class="competition-slide owl-carousel">
-            <a href="#">
+            <a href="{{route('pca')}}">
                 <div class="competition-container">
                     <img src="{{url('resources/img/Competition/pca.jpg')}}" alt="">
                     <span>PCA</span>
                 </div>
             </a>
-            <a href="#">
+            <a href="{{route('netcomp')}}">
                 <div class="competition-container">
                     <img src="{{url('resources/img/Competition/net_comp.jpg')}}" alt="">
                     <span>Network Competition</span>
                 </div>
             </a>
-            <a href="#">
+            <a href="{{route('cspc')}}">
                 <div class="competition-container">
                     <img src="{{url('resources/img/Competition/cspc.jpg')}}" alt="">
                     <span>CSPC</span>
                 </div>
             </a>
-            <a href="#">
+            <a href="{{route('webdev')}}">
                 <div class="competition-container">
                     <img src="{{url('resources/img/Competition/web.jpg')}}" alt="">
                     <span>Web Development</span>
                 </div>
             </a>
-            <a href="#">
+            <a href="{{route('animation')}}">
                 <div class="competition-container">
                     <img src="{{url('resources/img/Competition/animation.jpg')}}" alt="">
                     <span>Animmation Contest</span>

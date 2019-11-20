@@ -32,8 +32,8 @@
 
     <section class="dashboard-section">
         <span class=" dashboard-section-header">Pengumpulan Karya</span>
-        @if ($team->creation == null)
-        <form action="{{route('dashboard.insert.karya')}}" method="POST">
+        @if ($team->creation == null && (strtotime(date('Y-m-d')) <= strtotime('2019-11-16'))) <form
+            action="{{route('dashboard.insert.karya')}}" method="POST">
             @csrf
             @endif
             <div class="dashboard-overflow">
@@ -108,25 +108,19 @@
                     @enderror
                 </table>
             </div>
-            @if ($team->creation == null)
-            <button type="submit" class="dashboard-form-button">
+            @if ($team->creation == null && (strtotime(date('Y-m-d')) <= strtotime('2019-11-16'))) <button type="submit"
+                class="dashboard-form-button">
                 Submit Link Karya
-            </button>
-            @else
-            <div class="text-right">
-                <a href="{{route('dashboard.karya.edit')}}" class="edit-karya-button">Edit Link Karya</a>
-            </div>
-            @endif
-            @if ($team->creation == null)
-        </form>
-        @endif
-    </section>
-</main>
+                </button>
+                @endif
+                @if($team->creation != null && strtotime(date('Y-m-d')) <= strtotime('2019-11-16')) <div
+                    class="text-right">
+                    <a href="{{route('dashboard.karya.edit')}}" class="edit-karya-button">Edit Link Karya</a>
+                    </div>
+                    @endif
+                    @if ($team->creation == null && (strtotime(date('Y-m-d')) <= strtotime('2019-11-16'))) </form>
+                        @endif </section> </main> @endsection @section('script') <script
+                        src="{{url('resources/js/dashboard.js')}}">
+                        </script>
 
-@endsection
-
-@section('script')
-
-<script src="{{url('resources/js/dashboard.js')}}"></script>
-
-@endsection
+                        @endsection

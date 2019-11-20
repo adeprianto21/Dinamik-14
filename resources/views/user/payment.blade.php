@@ -62,18 +62,9 @@
 
         @if (($team->payment->status_upload_bukti == 0) && ($team->payment->status_validasi == 0) &&
         ($team->payment->status_pembayaran == 0))
-        <p class="payment-paragraph">
-            Silahkan melakukan pembayaran sebesar <span class="bold">Rp.
-                {{ number_format($team->competition->biaya_pendaftaran,0,',','.')}}</span>
-            melalui Transfer Bank dengan nomor rekening berikut :
-        </p>
-        <span class="bank-name">BANK BNI</span>
-        <span class="bank-number">0552163502</span>
-        <span class="bank-owner">a/n Meirista Puspa Anggraeni</span>
-
-        <p class="payment-paragraph">
-            Kemudian lakukan konfirmasi pembayaran dengan mengunggah bukti pembayaran di bawah ini.
-        </p>
+        <h5 class="payment-paragraph text-center bold my-5">
+            Mohon maaf, pembayaran telah ditutup
+        </h5>
         @endif
 
         @if (($team->payment->status_upload_bukti == 1) && ($team->payment->status_validasi == 0) &&
@@ -107,12 +98,13 @@
         </p>
         @endif
 
-        @if ($team->payment->status_upload_bukti == 0)
-        <form action="{{route('dashboard.insert.payment')}}" method="POST" enctype="multipart/form-data">
+        @if ($team->payment->status_upload_bukti == 0 && (strtotime(date('Y-m-d')) <= strtotime('2019-11-10'))) <form
+            action="{{route('dashboard.insert.payment')}}" method="POST" enctype="multipart/form-data">
             @csrf
             @endif
 
             <div class="upload-bukti-pembayaran mt-4">
+                @if ($team->payment->status_upload_bukti != 0)
                 <span class="photo-label bold">Bukti Pembayaran</span>
                 <img @if ($team->payment->status_upload_bukti == 0) src="{{url('resources/img/User/tax.png')}}" @else
                 src="{{url('resources/img/Payment_Image/' . $team->payment->nama_file)}}" @endif
@@ -177,18 +169,11 @@
                 <a href="{{route('dashboard.payment.edit')}}" class="edit-payment-button">Edit Pembayaran</a>
                 @endif
                 @endif
+                @endif
             </div>
-            @if ($team->payment->status_upload_bukti == 0)
-        </form>
-        @endif
-    </section>
+            @if ($team->payment->status_upload_bukti == 0 && (strtotime(date('Y-m-d')) <= strtotime('2019-11-10')))
+                </form> @endif </section> </main> @endsection @section('script') <script
+                src="{{url('resources/js/dashboard.js')}}">
+                </script>
 
-</main>
-
-@endsection
-
-@section('script')
-
-<script src="{{url('resources/js/dashboard.js')}}"></script>
-
-@endsection
+                @endsection

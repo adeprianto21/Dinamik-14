@@ -44,21 +44,31 @@
                 <tr class="dashboard-form-row">
                     <td class="min">
                         <label for="" class="dashboard-form-label">
+                            @if ($team->competition_id == 4)
                             Link Proposal
+                            @else
+                            Link Teaser Animasi
+                            @endif
                         </label>
                     </td>
                     <td>
-                        <a href="{{$team->creation->link_1}}" class="link-creation">{{$team->creation->link_1}}</a>
+                        <a href="{{$team->creation->link_1}}" class="link-creation"
+                            target="_blank">{{$team->creation->link_1}}</a>
                     </td>
                 </tr>
                 <tr class="dashboard-form-row">
                     <td class="min">
                         <label for="" class="dashboard-form-label">
+                            @if ($team->competition_id == 4)
                             Link Source Code Web
+                            @else
+                            Link Animasi (Full)
+                            @endif
                         </label>
                     </td>
                     <td>
-                        <a href="{{$team->creation->link_2}}" class="link-creation">{{$team->creation->link_2}}</a>
+                        <a href="{{$team->creation->link_2}}" class="link-creation"
+                            target="_blank">{{$team->creation->link_2}}</a>
                     </td>
                 </tr>
             </table>

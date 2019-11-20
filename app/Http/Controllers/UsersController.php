@@ -370,71 +370,84 @@ class UsersController extends Controller
 
     public function insertKarya(Request $request)
     {
-        $user = User::find(Auth::user()->id);
+        if (strtotime(date('Y-m-d')) <= strtotime('2019-11-16')) {
+            $user = User::find(Auth::user()->id);
 
-        if ($user->team->competition_id == null) {
-            return redirect()->route('dashboard.profile')->with('error', 'Harap Isi Identitas Tim Terlebih Dahulu');
-        } else if ($user->team->competition_id == 4 || $user->team->competition_id == 5) {
-            $message = [
+            if ($user->team->competition_id == null) {
+                return redirect()->route('dashboard.profile')->with('error', 'Harap Isi Identitas Tim Terlebih Dahulu');
+            } else if ($user->team->competition_id == 4 || $user->team->competition_id == 5) {
+                $message = [
                 'link_1.required' => 'Alamat Link Tidak Boleh Kosong',
                 'link_2.required' => 'Alamat Link Tidak Boleh Kosong',
-            ];
+                ];
 
-            Validator::make($request->all(), [
+                Validator::make($request->all(), [
                 'link_1' => 'required',
                 'link_2' => 'required',
-            ], $message)->validate();
+                ], $message)->validate();
 
-            Creation::create([
+                Creation::create([
                 'link_1' => $request->input('link_1'),
                 'link_2' => $request->input('link_2'),
                 'team_id' => User::find(Auth::user()->id)->team->id,
-            ]);
+                ]);
 
-            return redirect()->route('dashboard.karya')->with('success', 'Alamat Link Karya Berhasil Diupload');
+                return redirect()->route('dashboard.karya')->with('success', 'Alamat Link Karya Berhasil Diupload');
+            } else {
+                return redirect()->back()->with('error', 'Tidak Ada Karya Yang Harus Anda Kumpulkan');
+            }
         } else {
-            return redirect()->back()->with('error', 'Tidak Ada Karya Yang Harus Anda Kumpulkan');
+            return redirect()->back()->with('error', 'Waktu Pengumpulan Karya Telah Habis');
         }
+        
     }
 
     public function editKarya()
     {
-        $user = User::find(Auth::user()->id);
-
-        if ($user->team->creation == null) {
-            return redirect()->route('dashboard.karya')->with('error', 'Harap Upload Link Karya Terlebih Dahulu');
-        } else if ($user->team->competition_id == 4 || $user->team->competition_id == 5) {
-            return view('user.edit_karya', ['team' => User::find(Auth::user()->id)->team]);
+        if (strtotime(date('Y-m-d')) <= strtotime('2019-11-16')) {
+            $user = User::find(Auth::user()->id);
+    
+            if ($user->team->creation == null) {
+                return redirect()->route('dashboard.karya')->with('error', 'Harap Upload Link Karya Terlebih Dahulu');
+            } else if ($user->team->competition_id == 4 || $user->team->competition_id == 5) {
+                return view('user.edit_karya', ['team' => User::find(Auth::user()->id)->team]);
+            } else {
+                return redirect()->back()->with('error', 'Tidak Ada Karya Yang Harus Anda Kumpulkan');
+            }
         } else {
-            return redirect()->back()->with('error', 'Tidak Ada Karya Yang Harus Anda Kumpulkan');
+            return redirect()->back()->with('error', 'Waktu Pengumpulan Karya Telah Habis');
         }
     }
 
     public function updateKarya(Request $request)
     {
-        $user = User::find(Auth::user()->id);
-
-        if ($user->team->creation == null) {
-            return redirect()->route('dashboard.karya')->with('error', 'Harap Upload Link Karya Terlebih Dahulu');
-        } else if ($user->team->competition_id == 4 || $user->team->competition_id == 5) {
-            $message = [
-                'link_1.required' => 'Alamat Link Tidak Boleh Kosong',
-                'link_2.required' => 'Alamat Link Tidak Boleh Kosong',
-            ];
-
-            Validator::make($request->all(), [
-                'link_1' => 'required',
-                'link_2' => 'required',
-            ], $message)->validate();
-
-            $user->team->creation->update([
-                'link_1' => $request->input('link_1'),
-                'link_2' => $request->input('link_2'),
-            ]);
-
-            return redirect()->route('dashboard.karya')->with('success', 'Alamat Link Karya Berhasil Diubah');
+        if (strtotime(date('Y-m-d')) <= strtotime('2019-11-16')) {
+            $user = User::find(Auth::user()->id);
+    
+            if ($user->team->creation == null) {
+                return redirect()->route('dashboard.karya')->with('error', 'Harap Upload Link Karya Terlebih Dahulu');
+            } else if ($user->team->competition_id == 4 || $user->team->competition_id == 5) {
+                $message = [
+                    'link_1.required' => 'Alamat Link Tidak Boleh Kosong',
+                    'link_2.required' => 'Alamat Link Tidak Boleh Kosong',
+                ];
+    
+                Validator::make($request->all(), [
+                    'link_1' => 'required',
+                    'link_2' => 'required',
+                ], $message)->validate();
+    
+                $user->team->creation->update([
+                    'link_1' => $request->input('link_1'),
+                    'link_2' => $request->input('link_2'),
+                ]);
+    
+                return redirect()->route('dashboard.karya')->with('success', 'Alamat Link Karya Berhasil Diubah');
+            } else {
+                return redirect()->back()->with('error', 'Tidak Ada Karya Yang Harus Anda Kumpulkan');
+            }
         } else {
-            return redirect()->back()->with('error', 'Tidak Ada Karya Yang Harus Anda Kumpulkan');
+            return redirect()->back()->with('error', 'Waktu Pengumpulan Karya Telah Habis');
         }
     }
 
