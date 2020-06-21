@@ -77,17 +77,19 @@
                             <i class="fas fa-chevron-down"></i>
                         </span>
                         <div class="dinamik-dropdown-menu">
-                            <a href="{{route('pca')}}">Seminar Nasional</a>
-                            <a href="{{route('pca')}}">Festival IT</a>
-                            <a href="{{route('pca')}}">Festival Music</a>
+                            <a href="{{route('seminar')}}">Seminar Nasional</a>
+                            {{-- <a href="{{route('pca')}}">Festival IT</a>
+                            <a href="{{route('pca')}}">Festival Music</a> --}}
                         </div>
                     </li>
+                    {{-- <li><a href="#">Acara</a></li> --}}
                     <li><a href="#">Info</a></li>
                     <li class="divider">|</li>
 
                     @if ((!Auth::check()) && (!Auth::guard('admin')->check()))
                     @if (strtotime(date('Y-m-d')) <= strtotime('2019-11-10')) <li><a
-                            href="{{route('register')}}">Register</a></li>
+                            href="{{route('register')}}">Register</a>
+                        </li>
                         @endif
                         <li><a href="{{route('login')}}">Login</a></li>
                         @endif
@@ -166,11 +168,12 @@
                     <i class="fas fa-chevron-down"></i>
                 </span>
                 <div class="dinamik-dropdown-menu">
-                    <a href="{{route('pca')}}">Seminar Nasional</a>
-                    <a href="{{route('pca')}}">Festival IT</a>
-                    <a href="{{route('pca')}}">Festival Music</a>
+                    <a href="{{route('seminar')}}">Seminar Nasional</a>
+                    {{-- <a href="{{route('pca')}}">Festival IT</a>
+                    <a href="{{route('pca')}}">Festival Music</a> --}}
                 </div>
             </li>
+            {{-- <li><a href="#">Acara</a></li> --}}
             <li><a href="#">Info</a></li>
             <li class="divider">|</li>
 
@@ -297,7 +300,7 @@
             <a href="{{route('animation')}}">
                 <div class="competition-container">
                     <img src="{{url('resources/img/Competition/animation.jpg')}}" alt="">
-                    <span>Animmation Contest</span>
+                    <span>Animation Contest</span>
                 </div>
             </a>
         </div>

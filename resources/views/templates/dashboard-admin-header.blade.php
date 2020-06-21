@@ -36,6 +36,18 @@
                     <span>Payment</span>
                 </a>
             </li>
+            <li class="nav-side-list-item @if(strstr(Route::currentRouteName(), 'admin.seminar')) active @endif">
+                <a href="{{route('admin.seminar')}}">
+                    <i class="fas fa-comments"></i>
+                    <span>Seminar</span>
+                </a>
+            </li>
+            <li class="nav-side-list-item @if(strstr(Route::currentRouteName(), 'admin.music')) active @endif">
+                <a href="{{route('admin.music')}}">
+                    <i class="fas fa-music"></i>
+                    <span>Festival Music</span>
+                </a>
+            </li>
             <li class="nav-side-list-item @if(Route::currentRouteName() == 'dashboard.logout') active @endif">
                 <a href="{{route('admin.logout')}}" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">

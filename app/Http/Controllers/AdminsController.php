@@ -3,8 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+use App\Mail\SeminarPaymentReceipt;
+use App\Mail\SwarakaraTicket;
 use App\Team;
 use App\Payment;
+use App\SemnasParticipant;
+use PDF;
 
 class AdminsController extends Controller
 {
@@ -58,5 +65,64 @@ class AdminsController extends Controller
         $team_payment->status_pembayaran = $status;
         $team_payment->save();
         return redirect()->route('admin.payment.detail', ['id' => $id]);
+    }
+
+    public function showSeminarParticipants() {
+        return view('admin.seminar', ['participants' => SemnasParticipant::all()]);
+    }
+
+    public function showSeminarParticipantDetail($id) {
+        return view('admin.seminar-participant-detail', ['participant' => SemnasParticipant::find($id)]);
+    }
+
+    public function sendTicketSeminar($id) {        
+        
+        $participant = SemnasParticipant::find($id);
+
+        $pdf = PDF::loadView('templates.pdf.seminar', ['participant' => $participant]);
+        $file_name = 'semnas_receipt_'.$participant->id.'_'.$participant->nama.'.pdf';
+        file_put_contents('resources/pdf-semnas/'.$file_name, $pdf->output());
+
+        Mail::to($participant->email)->send(new SeminarPaymentReceipt($participant, $file_name));
+        return redirect()->back()->with('success', 'Email Bukti Pembayaran Telah Terkirim');
+    }
+
+    public function showFormFestivalMusic() {
+        return view('admin.form-music-festival');
+    }
+
+    public function sendTicketFestivaMusic(Request $request) {
+
+        $message = [
+            'nama.required' => 'Nama Tidak Boleh Kosong',
+            'email.required' => 'Email Tidak Boleh Kosong',
+            'email.email' => 'Email Tidak Valid',
+            'no_telp.required' => 'Nomor Telepon Tidak Boleh Kosong',
+            'jml_ticket.required' => 'Jumlah Ticket Tidak Boleh Kosong',
+            'no_ticket.required' => 'Nomor Ticket Tidak Boleh Kosong',
+        ];
+        
+        Validator::make($request->all(), [
+            'nama' => 'required',
+            'email' => 'required|email',
+            'no_telp' => 'required',
+            'jml_ticket' => 'required',
+            'no_ticket' => 'required',
+        ], $message)->validate();
+        
+        $participant = [
+            'nama' => $request->input('nama'),
+            'email' => $request->input('email'),
+            'no_telp' => $request->input('no_telp'),
+            'jml_ticket' => $request->input('jml_ticket'),
+            'no_ticket' => $request->input('no_ticket'),
+        ];
+
+        $pdf = PDF::loadView('templates.pdf.music', ['participant' => $participant]);
+        $file_name = 'swarakara_e-ticket_'.$participant['no_ticket'].'_'.$participant['nama'].'.pdf';
+        file_put_contents('resources/pdf-music/'.$file_name, $pdf->output());
+
+        Mail::to($participant['email'])->send(new SwarakaraTicket($participant, $file_name));
+        return redirect()->back()->with('success', 'Email Bukti Pembayaran Telah Terkirim');
     }
 }

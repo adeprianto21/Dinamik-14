@@ -26,6 +26,11 @@ Route::prefix('admin')->group(function () {
     Route::get('/payments', 'AdminsController@showPayments')->name('admin.payments');
     Route::get('/payment/{id}', 'AdminsController@showPaymentDetail')->name('admin.payment.detail');
     Route::get('/payment/{id}/{status}', 'AdminsController@updatePaymentStatus')->name('admin.update.payment');
+    Route::get('/seminar', 'AdminsController@showSeminarParticipants')->name('admin.seminar');
+    Route::get('/seminar/{id}', 'AdminsController@showSeminarParticipantDetail')->name('admin.seminar.detail');
+    Route::get('/seminar/sendticket/{id}', 'AdminsController@sendTicketSeminar')->name('admin.seminar.send');
+    Route::get('/music', 'AdminsController@showFormFestivalMusic')->name('admin.music');
+    Route::post('/music/sendticket', 'AdminsController@sendTicketFestivaMusic')->name('admin.music.send');
 
     Route::get('/', 'AdminsController@index')->name('admin');
 });
@@ -71,3 +76,13 @@ Route::get('/netcomp', 'HomeController@netcomp')->name('netcomp');
 Route::get('/cspc', 'HomeController@cspc')->name('cspc');
 Route::get('/webdev', 'HomeController@webdev')->name('webdev');
 Route::get('/animation', 'HomeController@animation')->name('animation');
+Route::get('/seminar', 'HomeController@seminar')->name('seminar');
+Route::get('/seminar/register', 'HomeController@showFormRegisterSeminar')->name('seminar.register');
+Route::post('/seminar/insert', 'HomeController@insertPesertaSeminar')->name('seminar.insert.peserta');
+Route::get('/seminar/success', 'HomeController@showSuccessRegisterSeminar')->name('seminar.register.success');
+Route::get('/testmail', function() {
+    return view('templates.email.email-seminar-paid');
+});
+Route::get('/testpdf', function() {
+    return view('templates.pdf.music');
+});
